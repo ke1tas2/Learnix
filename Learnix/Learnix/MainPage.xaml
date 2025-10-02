@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Learnix.MainPage"
+             BackgroundColor="#D6F0FA">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <!-- Центр: логотип + тексты -->
+        <VerticalStackLayout Grid.Row="0"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Spacing="15">
+
+            <Image Source="lear2.png"
+                   HeightRequest="120"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Добро пожаловать!"
+                   FontFamily="GameFontRegular"
+                   FontSize="28"
+                   TextColor="#3AAAE0"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" />
+
+            <Label Text="Твой личный помощник."
+                   FontFamily="GameFontRegular"
+                   FontSize="18"
+                   TextColor="Black"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" />
+        </VerticalStackLayout>
+
+        <!-- Низ: кнопки -->
+        <VerticalStackLayout Grid.Row="1"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center"
+                             Spacing="10"
+                             Margin="0,20">
+
+            <Button x:Name="RegistrBtn"
+                    FontFamily="GameFontRegular"
+                    Clicked="RegistrBtn_Clicked"
+                    Text="НАЧИНАЕМ"
+                    BackgroundColor="#AFC9F8"
+                    TextColor="Black"
+                    CornerRadius="10"
+                    WidthRequest="250"
+                    HeightRequest="45" />
+
+            <Button x:Name="LoginBtn"
+                    FontFamily="GameFontRegular"
+                    Text="У МЕНЯ УЖЕ ЕСТЬ АККАУНТ"
+                    Clicked="LoginBtn_Clicked"
+                    BackgroundColor="#AFC9F8"
+                    TextColor="Black"
+                    CornerRadius="10"
+                    WidthRequest="250"
+                    HeightRequest="45" />
+        </VerticalStackLayout>
+
+    </Grid>
+
+   
+</ContentPage>
