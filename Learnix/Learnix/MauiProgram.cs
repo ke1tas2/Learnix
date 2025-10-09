@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Learnix.Services;
 
 namespace Learnix
 {
@@ -20,6 +21,9 @@ namespace Learnix
 
 #if DEBUG
     		builder.Logging.AddDebug();
+            string dbPath = Path.Combine(AppContext.BaseDirectory, "learnix.db3");
+            builder.Services.AddSingleton(s => new DatabaseService(dbPath));
+
 #endif
 
             return builder.Build();
