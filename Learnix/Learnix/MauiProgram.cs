@@ -16,6 +16,9 @@ namespace Learnix
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("YanoneKaffeesatz-Semibold.ttf", "GameFontSemiBold");
                     fonts.AddFont("YanoneKaffeesatz-Regular.ttf", "GameFontRegular");
+                    fonts.AddFont("RocaOne-It.ttf", "RocaOneRegular");
+                    fonts.AddFont("RocaOne-Bdlt.ttf", "RocaOneBold");
+                    fonts.AddFont("RocaOne-Lt", "RocaOneLight");
                     
                 });
 

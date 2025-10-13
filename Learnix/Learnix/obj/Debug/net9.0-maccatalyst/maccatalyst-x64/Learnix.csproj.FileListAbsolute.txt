@@ -308,3 +308,10 @@ D:\Learnix\Learnix\Learnix\bin\Debug\net9.0-maccatalyst\maccatalyst-x64\SQLitePC
 D:\Learnix\Learnix\Learnix\bin\Debug\net9.0-maccatalyst\maccatalyst-x64\SQLitePCLRaw.provider.e_sqlite3.dll
 D:\Learnix\Learnix\Learnix\bin\Debug\net9.0-maccatalyst\maccatalyst-x64\libe_sqlite3.dylib
 D:\Learnix\Learnix\Learnix\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\logo.png
+D:\Learnix\Learnix\Learnix\bin\Debug\net9.0-maccatalyst\maccatalyst-x64\Microsoft.Maui.Controls.HotReload.Forms.dll
+D:\Learnix\Learnix\Learnix\bin\Debug\net9.0-maccatalyst\maccatalyst-x64\Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
+D:\Learnix\Learnix\Learnix\bin\Debug\net9.0-maccatalyst\maccatalyst-x64\Microsoft.VisualStudio.DesignTools.TapContract.dll
+D:\Learnix\Learnix\Learnix\bin\Debug\net9.0-maccatalyst\maccatalyst-x64\Microsoft.VisualStudio.DesignTools.XamlTapContract.dll
+D:\Learnix\Learnix\Learnix\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\resizetizer\f\RocaOne-BdIt.ttf
+D:\Learnix\Learnix\Learnix\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\resizetizer\f\RocaOne-It.ttf
+D:\Learnix\Learnix\Learnix\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\resizetizer\f\RocaOne-Lt.ttf

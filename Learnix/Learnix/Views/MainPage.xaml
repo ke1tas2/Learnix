@@ -10,22 +10,23 @@
         <VerticalStackLayout Grid.Row="0"
                              VerticalOptions="Center"
                              HorizontalOptions="Center"
-                             Spacing="15">
+                             >
 
             <Image Source="logo.png"
                    HeightRequest="50"
-                   HorizontalOptions="Center" />
+                   HorizontalOptions="Center" 
+                   Margin="0,0,0,20"/>
 
             <Label Text="Добро пожаловать!"
                    FontFamily="GameFontRegular"
-                   FontSize="28"
+                   FontSize="35"
                    TextColor="#3AAAE0"
                    HorizontalOptions="Center"
                    HorizontalTextAlignment="Center" />
 
             <Label Text="Твой личный помощник."
                    FontFamily="GameFontRegular"
-                   FontSize="18"
+                   FontSize="20"
                    TextColor="Black"
                    HorizontalOptions="Center"
                    HorizontalTextAlignment="Center" />
@@ -40,6 +41,8 @@
 
             <Button x:Name="RegistrBtn"
                     FontFamily="GameFontRegular"
+                    FontSize="20"
+                    
                     Clicked="RegistrBtn_Clicked"
                     Text="НАЧИНАЕМ"
                     BackgroundColor="#AFC9F8"
@@ -50,6 +53,7 @@
 
             <Button x:Name="LoginBtn"
                     FontFamily="GameFontRegular"
+                    FontSize="20"
                     Text="У МЕНЯ УЖЕ ЕСТЬ АККАУНТ"
                     Clicked="LoginBtn_Clicked"
                     BackgroundColor="#AFC9F8"

@@ -46,6 +46,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.AppShell.xam
 build_metadata.AdditionalFiles.TargetPath = Views\AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\AppShell.xaml
 
+[D:/Learnix/Learnix/Learnix/Views/AskFewQuestions.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.AskFewQuestions.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AskFewQuestions.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AskFewQuestions.xaml
+
 [D:/Learnix/Learnix/Learnix/Views/CompleteRegistrationPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.CompleteRegistrationPage.xaml

@@ -3,84 +3,123 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.RegistrationPage"
              Title="RegistrationPage">
-    <ScrollView>
-        <VerticalStackLayout Padding="30"
-                             Spacing="20"
-                             VerticalOptions="Center"
-                             HorizontalOptions="Center">
 
+    <ScrollView BackgroundColor="#D2EDF7">
+        <Grid Padding="30"
+              RowSpacing="20"
+              VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand">
+
+            <!-- Строки сетки -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Логотип -->
+                <RowDefinition Height="Auto"/>
+                <!-- Заголовок -->
+                <RowDefinition Height="*"/>
+                <!-- Поля ввода -->
+                <RowDefinition Height="Auto"/>
+                <!-- Кнопки -->
+            </Grid.RowDefinitions>
+
+            <!-- ЛОГО -->
             <Image Source="logo.png"
+                   Grid.Row="0"
                    HeightRequest="70"
-                   HorizontalOptions="Center" />
+                   VerticalOptions="Start"
+                   HorizontalOptions="Center"/>
 
-            <Label Text="Регистрация"
+            <!-- Заголовок -->
+            <Label Grid.Row="1"
+                   Text="Регистрация"
                    FontFamily="GameFontRegular"
-                   FontSize="28"
+                   FontSize="40"
+                   VerticalOptions="End"
                    HorizontalOptions="Center"
-                   TextColor="#3AAAE0"/>
-
-            <!-- Поле имя -->
-            <Entry x:Name="NameEntry"
-                   FontFamily="GameFontRegular"
-                   Placeholder="Введите имя или ФИО"
-                   BackgroundColor="White"
-                   TextColor="Black"
-                   WidthRequest="280"
-                   HeightRequest="45"
+                   TextColor="#3AAAE0"
+                   Margin="0,40,0,0"
                    />
 
-            <!-- Поле email -->
-            <Entry x:Name="EmailEntry"
-                   FontFamily="GameFontRegular"
-                   Placeholder="Введите Email"
-                   Keyboard="Email"
-                   BackgroundColor="White"
-                   TextColor="Black"
-                   WidthRequest="280"
-                   HeightRequest="45"
-                   />
+            <!-- БЛОК ПОЛЕЙ -->
+            <VerticalStackLayout Grid.Row="2"
+                                 Spacing="15"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Start"
+                                 Margin="0,60,0,0">
 
-            <!-- Поле пароль -->
-            <Entry x:Name="PasswordEntry"
-                   FontFamily="GameFontRegular"
-                   Placeholder="Введите пароль"
-                   IsPassword="True"
-                   BackgroundColor="White"
-                   TextColor="Black"
-                   WidthRequest="280"
-                   HeightRequest="45"
-                   />
+                <Entry x:Name="NameEntry"
+                       FontFamily="GameFontRegular"
+                       Placeholder="Введите имя или ФИО"
+                       PlaceholderColor="Black"
+                       BackgroundColor="Transparent"
+                       TextColor="Black"
+                       WidthRequest="280"
+                       HeightRequest="45"
+                       FontSize="20"/>
 
-            <!-- Выбор класса -->
-            <Picker x:Name="ClassPicker"
-                    FontFamily="GameFontRegular"
-                    Title="Выберите класс"
-                    WidthRequest="280"
-                    HeightRequest="50"
-                    TitleColor="Gray">
-                <Picker.Items>
-                    <x:String>10 класс</x:String>
-                    <x:String>11 класс</x:String>
-                </Picker.Items>
-            </Picker>
+                <Entry x:Name="EmailEntry"
+                       FontFamily="GameFontRegular"
+                       Placeholder="Введите Email"
+                       Keyboard="Email"
+                       PlaceholderColor="Black"
+                       BackgroundColor="Transparent"
+                       TextColor="Black"
+                       WidthRequest="280"
+                       HeightRequest="45"
+                       FontSize="20"/>
 
-            <!-- Кнопка регистрации -->
-            <Button Text="Зарегистрироваться"
-                    FontFamily="GameFontRegular"
-                    x:Name="RegisterBtn"
-                    BackgroundColor="#AFC9F8"
-                    TextColor="Black"
-                    CornerRadius="10"
-                    WidthRequest="280"
-                    HeightRequest="45"
-                    Clicked="OnRegisterClicked"/>
+                <Entry x:Name="PasswordEntry"
+                       FontFamily="GameFontRegular"
+                       Placeholder="Введите пароль"
+                       IsPassword="True"
+                       PlaceholderColor="Black"
+                       BackgroundColor="Transparent"
+                       TextColor="Black"
+                       WidthRequest="280"
+                       HeightRequest="45"
+                       FontSize="20"/>
 
-            <!-- Кнопка возврата -->
-            <Button Text="Уже есть аккаунт"
-                    FontFamily="GameFontRegular"
-                    BackgroundColor="Transparent"
-                    TextColor="#3AAAE0"
-                    Clicked="OnBackClicked"/>
-        </VerticalStackLayout>
+                <Picker x:Name="ClassPicker"
+                        FontFamily="GameFontRegular"
+                        Title="Выберите класс"
+                        TitleColor="Black"
+                        WidthRequest="280"
+                        HeightRequest="50"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        FontSize="20">
+                    <Picker.Items>
+                        <x:String>10 класс</x:String>
+                        <x:String>11 класс</x:String>
+                    </Picker.Items>
+                </Picker>
+            </VerticalStackLayout>
+
+            <!-- КНОПКИ -->
+            <VerticalStackLayout Grid.Row="3"
+                                 Spacing="10"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="End">
+
+                <Button Text="Зарегистрироваться"
+                        FontFamily="GameFontRegular"
+                        x:Name="RegisterBtn"
+                        FontSize="18"
+                        
+                        BackgroundColor="#AFC9F8"
+                        TextColor="Black"
+                        CornerRadius="10"
+                        WidthRequest="280"
+                        HeightRequest="45"
+                        Clicked="OnRegisterClicked"/>
+
+                <Button Text="Уже есть аккаунт"
+                        FontFamily="GameFontRegular"
+                        FontSize="20"
+                        BackgroundColor="Transparent"
+                        TextColor="#3AAAE0"
+                        Clicked="OnBackClicked"/>
+            </VerticalStackLayout>
+        </Grid>
     </ScrollView>
 </ContentPage>

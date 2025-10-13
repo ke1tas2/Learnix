@@ -488,3 +488,9 @@ D:\Learnix\Learnix\Learnix\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\SQLite
 D:\Learnix\Learnix\Learnix\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\e_sqlite3.dll
 D:\Learnix\Learnix\Learnix\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\logo.scale-100.png
 D:\Learnix\Learnix\Learnix\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\logo.scale-100.png
+D:\Learnix\Learnix\Learnix\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\RocaOne-BdIt.ttf
+D:\Learnix\Learnix\Learnix\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\RocaOne-It.ttf
+D:\Learnix\Learnix\Learnix\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\RocaOne-Lt.ttf
+D:\Learnix\Learnix\Learnix\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\f\RocaOne-BdIt.ttf
+D:\Learnix\Learnix\Learnix\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\f\RocaOne-It.ttf
+D:\Learnix\Learnix\Learnix\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\f\RocaOne-Lt.ttf

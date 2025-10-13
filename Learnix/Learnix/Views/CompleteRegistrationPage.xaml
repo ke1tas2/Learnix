@@ -46,11 +46,14 @@
                     Text="Продолжить"
                     BackgroundColor="#AFC9F8"
                     FontFamily="GameFontRegular"
+                    FontSize="18"
                     TextColor="Black"
                     CornerRadius="10"
                     WidthRequest="250"
                     HeightRequest="45"
-                    HorizontalOptions="Center"/>
+                    HorizontalOptions="Center"
+                    Opacity="0"
+                    TranslationY="40"/>
         </VerticalStackLayout>
     </Grid>
 </ContentPage>
