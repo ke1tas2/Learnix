@@ -1,22 +1,21 @@
-﻿using System;
+﻿using Learnix.Models;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite;
-using Learnix.Models;
 
 namespace Learnix.Services
 {
-    public class DatabaseService
+    public class DatabaseService 
     {
         private readonly SQLiteAsyncConnection _db;
 
         public DatabaseService(string dbPath)
         {
             _db = new SQLiteAsyncConnection(dbPath);
-            _db.CreateTableAsync<User>().GetAwaiter().GetResult() ;
-            
+            _db.CreateTableAsync<User>().Wait();
         }
 
         public Task<int> AddUser(User user)
@@ -24,18 +23,11 @@ namespace Learnix.Services
             return _db.InsertAsync(user);
         }
 
-        public Task<User> GetUser(string email, string password)
+        public async Task<User?> GetUserByEmail(string email)
         {
-            return _db.Table<User>()
-                      .Where(u => u.Email == email && u.Password == password)
-                      .FirstOrDefaultAsync();
+            return await _db.Table<User>().FirstOrDefaultAsync(u => u.Email == email);
         }
 
-        public Task<User> UserEmailCheck(string email) 
-        { 
-            return _db.Table<User>().Where(u => u.Email == email).FirstOrDefaultAsync();
-        
-        
-        }
+
     }
 }

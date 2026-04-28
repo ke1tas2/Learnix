@@ -24,7 +24,7 @@
                    Margin="5,0,0,0"/>
 
             <!-- Поле email -->
-            <Entry x:Name="LoginEmailEntry"
+            <Entry x:Name="EmailEntry"
                    Placeholder="Введите Email"
                    FontFamily="GameFontRegular"
                    Keyboard="Email"
@@ -36,7 +36,7 @@
                    HeightRequest="45" />
 
             <!-- Поле пароль -->
-            <Entry x:Name="LoginPasswordEntry"
+            <Entry x:Name="PasswordEntry"
                    FontFamily="GameFontRegular"
                    Placeholder="Введите пароль"
                    FontSize="20"
@@ -63,6 +63,7 @@
 
             <!-- Кнопка возврата -->
             <Button Text="Еще нет аккаунта?"
+                    x:Name="BackBtn"
                     FontFamily="GameFontRegular"
                     FontSize="20"
                     BackgroundColor="Transparent"

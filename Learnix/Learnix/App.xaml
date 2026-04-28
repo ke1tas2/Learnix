@@ -5,9 +5,15 @@
              x:Class="Learnix.App">
     <Application.Resources>
         <ResourceDictionary>
+            <Shadow x:Key="MyShadow"
+                Brush="Black"
+                Offset="0,4"
+                Radius="10"
+                Opacity="0.25"/>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

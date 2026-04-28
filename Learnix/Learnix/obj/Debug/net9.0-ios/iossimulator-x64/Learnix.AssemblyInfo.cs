@@ -14,11 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Learnix")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+a7cf4d891fb35abb5a67d6b99a425851e85fdad9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+d4add900e90364a41c0fb70e46194924ed7ea2de")]
 [assembly: System.Reflection.AssemblyProductAttribute("Learnix")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Learnix")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
-[assembly: System.Runtime.Versioning.TargetPlatformAttribute("iOS18.5")]
+[assembly: System.Runtime.Versioning.TargetPlatformAttribute("iOS26.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("iOS15.0")]
 
 // Создано классом WriteCodeFragment MSBuild.

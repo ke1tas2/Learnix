@@ -1,4 +1,6 @@
-﻿
+﻿using System.Data;
+
+using Npgsql;
 
 namespace Learnix
 {
@@ -11,7 +13,9 @@ namespace Learnix
             InitializeComponent();
             
         }
+        
 
+        
         // у тебя остались анимации кнопок — оставь их в обработчиках,
         // а после анимации вызывай команду VM
         private async void RegistrBtn_Clicked(object sender, EventArgs e)

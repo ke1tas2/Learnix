@@ -33,14 +33,6 @@
                     HorizontalOptions="Center"
                     Opacity="0"
                     TranslationY="40"/>
-        </VerticalStackLayout>
-
-        <VerticalStackLayout 
-            Grid.Row="1"
-            VerticalOptions="End"
-            HorizontalOptions="Center"
-            Margin="0,30">
-
             <Button x:Name="NextBtn"
                     Clicked="NextBtnClicked"
                     Text="Продолжить"
@@ -55,5 +47,7 @@
                     Opacity="0"
                     TranslationY="40"/>
         </VerticalStackLayout>
+
+        
     </Grid>
 </ContentPage>

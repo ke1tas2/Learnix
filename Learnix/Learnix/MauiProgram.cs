@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Learnix.Services;
-
+using CommunityToolkit.Maui;
 namespace Learnix
 {
     public static class MauiProgram
@@ -10,6 +10,7 @@ namespace Learnix
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -24,8 +25,10 @@ namespace Learnix
 
 #if DEBUG
     		builder.Logging.AddDebug();
+
             string dbPath = Path.Combine(AppContext.BaseDirectory, "learnix.db3");
-            builder.Services.AddSingleton(s => new DatabaseService(dbPath));
+            builder.Services.AddSingleton(new DatabaseService(dbPath));
+
 
 #endif
 

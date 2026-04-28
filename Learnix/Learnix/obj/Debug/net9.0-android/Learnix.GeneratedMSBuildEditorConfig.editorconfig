@@ -4,13 +4,28 @@ build_property.EnableSingleFileAnalyzer = true
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
 build_property.TargetFramework = net9.0-android
+build_property.TargetFramework = net9.0-android
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = false
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.MvvmToolkitEnableINotifyPropertyChangingSupport = true
+build_property._MvvmToolkitIsUsingWindowsRuntimePack = false
+build_property.CsWinRTComponent = 
+build_property.CsWinRTAotOptimizerEnabled = 
+build_property.CsWinRTAotWarningLevel = 
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v9.0
 build_property.RootNamespace = Learnix
 build_property.ProjectDir = D:\Learnix\Learnix\Learnix\
 build_property.EnableComHosting = 
@@ -54,6 +69,18 @@ build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.CompleteRegi
 build_metadata.AdditionalFiles.TargetPath = Views\CompleteRegistrationPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CompleteRegistrationPage.xaml
 
+[D:/Learnix/Learnix/Learnix/Views/HowKnowPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.HowKnowPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\HowKnowPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\HowKnowPage.xaml
+
+[D:/Learnix/Learnix/Learnix/Views/HowLongQuestionPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.HowLongQuestionPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\HowLongQuestionPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\HowLongQuestionPage.xaml
+
 [D:/Learnix/Learnix/Learnix/Views/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.LoginPage.xaml
@@ -71,3 +98,15 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.RegistrationPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\RegistrationPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\RegistrationPage.xaml
+
+[D:/Learnix/Learnix/Learnix/Views/SubjectQuestionPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.SubjectQuestionPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\SubjectQuestionPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\SubjectQuestionPage.xaml
+
+[D:/Learnix/Learnix/Learnix/Views/WhatSubject.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.WhatSubject.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\WhatSubject.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\WhatSubject.xaml

@@ -1,9 +1,9 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite;
 
 namespace Learnix.Models
 {
@@ -13,14 +13,15 @@ namespace Learnix.Models
         public int Id { get; set; }
 
         [MaxLength(100), Unique]
-        public string Email { get; set; } = string.Empty;
+        public string? Email { get; set; }
 
         [MaxLength(100)]
-        public string Name { get; set; } = string.Empty;
+        public string? Name { get; set; }
 
         [MaxLength(100)]
-        public string Password { get; set; } = string.Empty;
+        public string? Password { get; set; }
 
-        public string Class { get; set; } = string.Empty;
+        public string? Class { get; set; }
+
     }
 }

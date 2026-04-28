@@ -1,0 +1,181 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Learnix\\Learnix.Api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|d:\\learnix\\learnix.api\\learnix.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|solutionrelative:learnix.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|d:\\learnix\\learnix.api\\learnix.api\\dtos\\registeruserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|solutionrelative:learnix.api\\dtos\\registeruserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|d:\\learnix\\learnix.api\\learnix.api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|solutionrelative:learnix.api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|d:\\learnix\\learnix.api\\learnix.api\\dtos\\loginuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|solutionrelative:learnix.api\\dtos\\loginuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|d:\\learnix\\learnix.api\\learnix.api\\dtos\\userresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|solutionrelative:learnix.api\\dtos\\userresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|d:\\learnix\\learnix.api\\learnix.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|solutionrelative:learnix.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|d:\\learnix\\learnix.api\\learnix.api\\migrations\\20260203203855_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|solutionrelative:learnix.api\\migrations\\20260203203855_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|d:\\learnix\\learnix.api\\learnix.api\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|solutionrelative:learnix.api\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|d:\\learnix\\learnix.api\\learnix.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|solutionrelative:learnix.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|d:\\learnix\\learnix.api\\learnix.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A1EDB0F9-F084-7ADF-B797-27507636F68A}|Learnix.API\\Learnix.API.csproj|solutionrelative:learnix.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegisterUserDto.cs",
+              "DocumentMoniker": "D:\\Learnix\\Learnix.Api\\Learnix.API\\DTOs\\RegisterUserDto.cs",
+              "RelativeDocumentMoniker": "Learnix.API\\DTOs\\RegisterUserDto.cs",
+              "ToolTip": "D:\\Learnix\\Learnix.Api\\Learnix.API\\DTOs\\RegisterUserDto.cs",
+              "RelativeToolTip": "Learnix.API\\DTOs\\RegisterUserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:48:11.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginUserDto.cs",
+              "DocumentMoniker": "D:\\Learnix\\Learnix.Api\\Learnix.API\\DTOs\\LoginUserDto.cs",
+              "RelativeDocumentMoniker": "Learnix.API\\DTOs\\LoginUserDto.cs",
+              "ToolTip": "D:\\Learnix\\Learnix.Api\\Learnix.API\\DTOs\\LoginUserDto.cs",
+              "RelativeToolTip": "Learnix.API\\DTOs\\LoginUserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T13:00:39.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "20260203203855_InitialCreate.cs",
+              "DocumentMoniker": "D:\\Learnix\\Learnix.Api\\Learnix.API\\Migrations\\20260203203855_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Learnix.API\\Migrations\\20260203203855_InitialCreate.cs",
+              "ToolTip": "D:\\Learnix\\Learnix.Api\\Learnix.API\\Migrations\\20260203203855_InitialCreate.cs",
+              "RelativeToolTip": "Learnix.API\\Migrations\\20260203203855_InitialCreate.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T10:08:17.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Learnix\\Learnix.Api\\Learnix.API\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Learnix.API\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\Learnix\\Learnix.Api\\Learnix.API\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Learnix.API\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T12:15:19.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\Learnix\\Learnix.Api\\Learnix.API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Learnix.API\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\Learnix\\Learnix.Api\\Learnix.API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Learnix.API\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T17:11:37.283Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserResponseDto.cs",
+              "DocumentMoniker": "D:\\Learnix\\Learnix.Api\\Learnix.API\\DTOs\\UserResponseDto.cs",
+              "RelativeDocumentMoniker": "Learnix.API\\DTOs\\UserResponseDto.cs",
+              "ToolTip": "D:\\Learnix\\Learnix.Api\\Learnix.API\\DTOs\\UserResponseDto.cs",
+              "RelativeToolTip": "Learnix.API\\DTOs\\UserResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T14:21:56.101Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Learnix\\Learnix.Api\\Learnix.API\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Learnix.API\\Models\\User.cs",
+              "ToolTip": "D:\\Learnix\\Learnix.Api\\Learnix.API\\Models\\User.cs",
+              "RelativeToolTip": "Learnix.API\\Models\\User.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwAkAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:58:14.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "D:\\Learnix\\Learnix.Api\\Learnix.API\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Learnix.API\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "D:\\Learnix\\Learnix.Api\\Learnix.API\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Learnix.API\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T10:08:22.445Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Learnix\\Learnix.Api\\Learnix.API\\Program.cs",
+              "RelativeDocumentMoniker": "Learnix.API\\Program.cs",
+              "ToolTip": "D:\\Learnix\\Learnix.Api\\Learnix.API\\Program.cs",
+              "RelativeToolTip": "Learnix.API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T19:43:45.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Learnix\\Learnix.Api\\Learnix.API\\appsettings.json",
+              "RelativeDocumentMoniker": "Learnix.API\\appsettings.json",
+              "ToolTip": "D:\\Learnix\\Learnix.Api\\Learnix.API\\appsettings.json",
+              "RelativeToolTip": "Learnix.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-28T17:24:42.029Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

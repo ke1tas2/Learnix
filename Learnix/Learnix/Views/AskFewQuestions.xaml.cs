@@ -10,7 +10,7 @@ public partial class AskFewQuestions : ContentPage
 	{
         await ContinueBttn.ScaleTo(1.1, 150);
         await ContinueBttn.ScaleTo(1.0, 150);
-
+        await Shell.Current.GoToAsync(nameof(HowLongQuestionPage));
 
 
     }

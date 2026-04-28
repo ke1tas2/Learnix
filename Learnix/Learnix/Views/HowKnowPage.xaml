@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Learnix.Views.HowKnowPage"
+             Title="HowKnowPage">
+    <VerticalStackLayout>
+        <Grid RowDefinitions="*, Auto">
+
+            <VerticalStackLayout Grid.Row ="0"
+                                 Spacing="20"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center">
+                <Label Text="На сколько вы знаете?"
+                       FontFamily="GameFontRegular"
+                       TextColor="#3AAAE0"
+                       FontSize="32"
+                       Margin="0,0,0,15"
+                 />
+
+
+                <Border StrokeThickness="2"
+                        Stroke="#3AAAE0"
+                        WidthRequest="300"
+                        HorizontalOptions="Center"
+                        BackgroundColor="White"
+                        StrokeShape="RoundRectangle 12"
+                        Margin="0,8"
+                        Padding="4"
+                        Shadow="{StaticResource MyShadow}">
+                    <Border.Triggers>
+                        <DataTrigger TargetType="Border"
+                            Binding="{Binding Source={x:Reference opt5}, Path=IsChecked}"
+                            Value="True">
+                            <Setter Property="Stroke" Value="{StaticResource Primary}"/>
+                            <Setter Property="BackgroundColor" Value="#E6F4FF"/>
+                        </DataTrigger>
+                    </Border.Triggers>
+                    <RadioButton x:Name="opt5"
+                             GroupName="timeGroup"
+                             
+                             Content="5 минут в день"
+                             FontSize="16"
+                             TextColor="Black"
+                             Margin="1,1"
+                             Padding="0"/>
+                </Border>
+
+                <Border StrokeThickness="2"
+                        WidthRequest="300"
+                        HorizontalOptions="Center"
+                        Stroke="#3AAAE0"
+                        BackgroundColor="White"
+                        StrokeShape="RoundRectangle 12"
+                        Margin="0,8"
+                        Padding="4"
+                        Shadow="{StaticResource MyShadow}">
+                    <Border.Triggers>
+                        <DataTrigger TargetType="Border"
+                                     Binding="{Binding Source={x:Reference opt4}, Path=IsChecked}"
+                                     Value="True">
+                            <Setter Property="Stroke" Value="{StaticResource Primary}"/>
+                            <Setter Property="BackgroundColor" Value="#E6F4FF"/>
+                        </DataTrigger>
+                    </Border.Triggers>
+                    <RadioButton x:Name="opt4"
+                                 GroupName="timeGroup"
+                                 Content="5 минут в день"
+                                 FontSize="16"
+                                 TextColor="Black"
+                                 Margin="1,1"
+                                 Padding="0"/>
+                </Border>
+
+                <Border StrokeThickness="2"
+                        Stroke="#3AAAE0"
+                        WidthRequest="300"
+                        HorizontalOptions="Center"
+                        BackgroundColor="White"
+                        StrokeShape="RoundRectangle 12"
+                        Margin="0,8"
+                        Padding="4"
+                        Shadow="{StaticResource MyShadow}">
+                    <Border.Triggers>
+                        <DataTrigger TargetType="Border"
+                                     Binding="{Binding Source={x:Reference opt3}, Path=IsChecked}"
+                                     Value="True">
+                            <Setter Property="Stroke" Value="{StaticResource Primary}"/>
+                            <Setter Property="BackgroundColor" Value="#E6F4FF"/>
+                        </DataTrigger>
+                    </Border.Triggers>
+                    <RadioButton x:Name="opt3"
+                                 GroupName="timeGroup"
+                                 Content="5 минут в день"
+                                 FontSize="16"
+                                 TextColor="Black"
+                                 Margin="1,1"
+                                 Padding="0"/>
+                </Border>
+                <Border StrokeThickness="2"
+                        WidthRequest="300"
+                        HorizontalOptions="Center"
+                        Stroke="#3AAAE0"
+                        BackgroundColor="White"
+                        StrokeShape="RoundRectangle 12"
+                        Margin="0,8"
+                        Padding="4"
+                        Shadow="{StaticResource MyShadow}">
+                    <Border.Triggers>
+                        <DataTrigger TargetType="Border"
+                             Binding="{Binding Source={x:Reference opt2}, Path=IsChecked}"
+                             Value="True">
+                            <Setter Property="Stroke" Value="{StaticResource Primary}"/>
+                            <Setter Property="BackgroundColor" Value="#E6F4FF"/>
+                        </DataTrigger>
+                    </Border.Triggers>
+                    <RadioButton x:Name="opt2"
+                                 GroupName="timeGroup"
+                                 Content="5 минут в день"
+                                 FontSize="16"
+                                 TextColor="Black"
+                                 Margin="1,1"
+                                 Padding="0"/>
+                </Border>
+
+
+            </VerticalStackLayout>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

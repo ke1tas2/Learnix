@@ -13,7 +13,7 @@
                              >
 
             <Image Source="logo.png"
-                   HeightRequest="50"
+                   HeightRequest="70"
                    HorizontalOptions="Center" 
                    Margin="0,0,0,20"/>
 
