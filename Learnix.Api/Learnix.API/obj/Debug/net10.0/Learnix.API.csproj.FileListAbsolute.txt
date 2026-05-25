@@ -115,7 +115,6 @@ D:\Learnix\Learnix.API\Learnix.API\obj\Debug\net10.0\staticwebassets.build.json.
 D:\Learnix\Learnix.API\Learnix.API\obj\Debug\net10.0\staticwebassets.development.json
 D:\Learnix\Learnix.API\Learnix.API\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 D:\Learnix\Learnix.API\Learnix.API\obj\Debug\net10.0\swae.build.ex.cache
-D:\Learnix\Learnix.API\Learnix.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 D:\Learnix\Learnix.API\Learnix.API\obj\Debug\net10.0\Learnix..DC4D3137.Up2Date
 D:\Learnix\Learnix.API\Learnix.API\obj\Debug\net10.0\Learnix.API.dll
 D:\Learnix\Learnix.API\Learnix.API\obj\Debug\net10.0\refint\Learnix.API.dll

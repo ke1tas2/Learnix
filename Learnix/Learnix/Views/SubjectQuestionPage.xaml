@@ -2,11 +2,59 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.Views.SubjectQuestionPage"
-             Title="SubjectQuestionPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Learnix"
+             BackgroundColor="#D6F0FA">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="24">
+        <Image Source="logo.png"
+               Grid.Row="0"
+               HeightRequest="64"
+               HorizontalOptions="Center"
+               Margin="0,24,0,16"/>
+
+        <VerticalStackLayout Grid.Row="1"
+                             Spacing="16"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
+            <Label Text="Учебная дорожка готова"
+                   FontFamily="GameFontRegular"
+                   FontSize="32"
+                   TextColor="#3AAAE0"
+                   HorizontalTextAlignment="Center"/>
+
+            <Label Text="Начните с короткого уровня на 5-10 минут и удерживайте серию занятий."
+                   FontSize="16"
+                   TextColor="Black"
+                   WidthRequest="300"
+                   HorizontalTextAlignment="Center"/>
+
+            <Border Stroke="#3AAAE0"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 12"
+                    BackgroundColor="White"
+                    Padding="16"
+                    WidthRequest="300">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Первый уровень"
+                           FontFamily="GameFontRegular"
+                           FontSize="20"
+                           TextColor="Black"/>
+                    <Label Text="Повторение основ и несколько быстрых вопросов без перегруза."
+                           FontSize="13"
+                           TextColor="DimGray"/>
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+
+        <Button Grid.Row="2"
+                Text="На главный экран"
+                FontFamily="GameFontRegular"
+                FontSize="18"
+                BackgroundColor="#AFC9F8"
+                TextColor="Black"
+                CornerRadius="10"
+                WidthRequest="250"
+                HeightRequest="45"
+                HorizontalOptions="Center"
+                Clicked="OnHomeClicked"/>
+    </Grid>
 </ContentPage>

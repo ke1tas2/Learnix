@@ -2,127 +2,37 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.Views.WhatSubject"
-             Title="WhatSubject">
-    <Grid RowDefinitions="*, Auto">
+             Title="Предметы"
+             BackgroundColor="#D6F0FA">
 
-        <VerticalStackLayout Grid.Row ="0"
-                        
-                         Spacing="20"
-                         VerticalOptions="Center"
-                         HorizontalOptions="Center">
-            <Label Text="Что вы хотите изучать?"
+    <Grid RowDefinitions="Auto,*,Auto" Padding="24">
+        <Label Grid.Row="0"
+               Text="Что будем изучать?"
                FontFamily="GameFontRegular"
                TextColor="#3AAAE0"
                FontSize="32"
-               Margin="0,0,0,15"
-               />
+               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
+               Margin="0,20,0,16"/>
 
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout x:Name="SubjectList"
+                                 Spacing="12"
+                                 HorizontalOptions="Center"/>
+        </ScrollView>
 
-            <Border StrokeThickness="2"
-                Stroke="#3AAAE0"
-                WidthRequest="300"
+        <Button Grid.Row="2"
+                x:Name="ContinueBtn"
+                Text="Начать обучение"
+                FontFamily="GameFontRegular"
+                FontSize="18"
+                BackgroundColor="#AFC9F8"
+                TextColor="Black"
+                CornerRadius="10"
+                WidthRequest="250"
+                HeightRequest="45"
                 HorizontalOptions="Center"
-                BackgroundColor="White"
-                StrokeShape="RoundRectangle 12"
-                Margin="0,8"
-                Padding="4"
-                Shadow="{StaticResource MyShadow}">
-                <Border.Triggers>
-                    <DataTrigger TargetType="Border"
-                            Binding="{Binding Source={x:Reference opt5}, Path=IsChecked}"
-                            Value="True">
-                        <Setter Property="Stroke" Value="{StaticResource Primary}"/>
-                        <Setter Property="BackgroundColor" Value="#E6F4FF"/>
-                    </DataTrigger>
-                </Border.Triggers>
-                <RadioButton x:Name="opt5"
-                             GroupName="timeGroup"
-                             
-                             Content="5 минут в день"
-                             FontSize="16"
-                             TextColor="Black"
-                             Margin="1,1"
-                             Padding="0"/>
-            </Border>
-
-            <Border StrokeThickness="2"
-                WidthRequest="300"
-                HorizontalOptions="Center"
-                Stroke="#3AAAE0"
-                BackgroundColor="White"
-                StrokeShape="RoundRectangle 12"
-                Margin="0,8"
-                Padding="4"
-                Shadow="{StaticResource MyShadow}">
-                <Border.Triggers>
-                    <DataTrigger TargetType="Border"
-             Binding="{Binding Source={x:Reference opt4}, Path=IsChecked}"
-             Value="True">
-                        <Setter Property="Stroke" Value="{StaticResource Primary}"/>
-                        <Setter Property="BackgroundColor" Value="#E6F4FF"/>
-                    </DataTrigger>
-                </Border.Triggers>
-                <RadioButton x:Name="opt4"
-                         GroupName="timeGroup"
-                         Content="5 минут в день"
-                         FontSize="16"
-                         TextColor="Black"
-                         Margin="1,1"
-                         Padding="0"/>
-            </Border>
-
-            <Border StrokeThickness="2"
-                Stroke="#3AAAE0"
-                WidthRequest="300"
-                HorizontalOptions="Center"
-                BackgroundColor="White"
-                StrokeShape="RoundRectangle 12"
-                Margin="0,8"
-                Padding="4"
-                Shadow="{StaticResource MyShadow}">
-                <Border.Triggers>
-                    <DataTrigger TargetType="Border"
-                             Binding="{Binding Source={x:Reference opt3}, Path=IsChecked}"
-                             Value="True">
-                        <Setter Property="Stroke" Value="{StaticResource Primary}"/>
-                        <Setter Property="BackgroundColor" Value="#E6F4FF"/>
-                    </DataTrigger>
-                </Border.Triggers>
-                <RadioButton x:Name="opt3"
-                         GroupName="timeGroup"
-                         Content="5 минут в день"
-                         FontSize="16"
-                         TextColor="Black"
-                         Margin="1,1"
-                         Padding="0"/>
-            </Border>
-            <Border StrokeThickness="2"
-                WidthRequest="300"
-                HorizontalOptions="Center"
-                Stroke="#3AAAE0"
-                BackgroundColor="White"
-                StrokeShape="RoundRectangle 12"
-                Margin="0,8"
-                Padding="4"
-                Shadow="{StaticResource MyShadow}">
-                <Border.Triggers>
-                    <DataTrigger TargetType="Border"
-                             Binding="{Binding Source={x:Reference opt2}, Path=IsChecked}"
-                             Value="True">
-                        <Setter Property="Stroke" Value="{StaticResource Primary}"/>
-                        <Setter Property="BackgroundColor" Value="#E6F4FF"/>
-                    </DataTrigger>
-                </Border.Triggers>
-                <RadioButton x:Name="opt2"
-                         GroupName="timeGroup"
-                         Content="5 минут в день"
-                         FontSize="16"
-                         TextColor="Black"
-                         Margin="1,1"
-                         Padding="0"/>
-            </Border>
-
-
-        </VerticalStackLayout>
+                Margin="0,16,0,0"
+                Clicked="OnContinueClicked"/>
     </Grid>
 </ContentPage>

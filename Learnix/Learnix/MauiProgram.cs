@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
-using Learnix.Services;
 using CommunityToolkit.Maui;
+using Learnix.Services;
+using Learnix.Views;
+using Microsoft.Extensions.Logging;
+
 namespace Learnix
 {
     public static class MauiProgram
@@ -18,21 +20,43 @@ namespace Learnix
                     fonts.AddFont("YanoneKaffeesatz-Semibold.ttf", "GameFontSemiBold");
                     fonts.AddFont("YanoneKaffeesatz-Regular.ttf", "GameFontRegular");
                     fonts.AddFont("RocaOne-It.ttf", "RocaOneRegular");
-                    fonts.AddFont("RocaOne-Bdlt.ttf", "RocaOneBold");
-                    fonts.AddFont("RocaOne-Lt", "RocaOneLight");
-                    
+                    fonts.AddFont("RocaOne-BdIt.ttf", "RocaOneBold");
+                    fonts.AddFont("RocaOne-Lt.ttf", "RocaOneLight");
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 
-            string dbPath = Path.Combine(AppContext.BaseDirectory, "learnix.db3");
+            var dbPath = Path.Combine(AppContext.BaseDirectory, "learnix.db3");
             builder.Services.AddSingleton(new DatabaseService(dbPath));
-
-
 #endif
 
+            builder.Services.AddSingleton(new HttpClient
+            {
+                BaseAddress = new Uri(GetApiBaseUrl())
+            });
+            builder.Services.AddSingleton<LearnixApiClient>();
+
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<RegistrationPage>();
+            builder.Services.AddTransient<LoginPage>();
+            builder.Services.AddTransient<CompleteRegistrationPage>();
+            builder.Services.AddTransient<AskFewQuestions>();
+            builder.Services.AddTransient<HowLongQuestionPage>();
+            builder.Services.AddTransient<HowKnowPage>();
+            builder.Services.AddTransient<WhatSubject>();
+            builder.Services.AddTransient<SubjectQuestionPage>();
+
             return builder.Build();
+        }
+
+        private static string GetApiBaseUrl()
+        {
+#if ANDROID
+            return "http://10.0.2.2:5199/";
+#else
+            return "http://localhost:5199/";
+#endif
         }
     }
 }

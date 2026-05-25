@@ -1,58 +1,67 @@
+п»їusing Learnix.Services;
+using Learnix.Views;
+
 namespace Learnix;
-using SQLite;
-using Learnix.Services;
-using System.IO;
-using Npgsql;
-using Learnix.Models;
 
 public partial class RegistrationPage : ContentPage
 {
-    private readonly DatabaseService _db;
+    private readonly LearnixApiClient _apiClient;
 
-    public RegistrationPage(DatabaseService db)
+    public RegistrationPage(LearnixApiClient apiClient)
     {
         InitializeComponent();
-        _db = db;
+        _apiClient = apiClient;
     }
+
     private async void OnRegisterClicked(object sender, EventArgs e)
     {
-        string name = NameEntry.Text ?? "";
-        string email = EmailEntry.Text ?? "";
-        string password = PasswordEntry.Text ?? "";
-        string userClass = ClassPicker.SelectedItem?.ToString() ?? "";
+        var name = NameEntry.Text?.Trim() ?? string.Empty;
+        var email = EmailEntry.Text?.Trim() ?? string.Empty;
+        var password = PasswordEntry.Text ?? string.Empty;
+        var userClass = ClassPicker.SelectedItem?.ToString() ?? string.Empty;
 
         if (string.IsNullOrWhiteSpace(name) ||
             string.IsNullOrWhiteSpace(email) ||
             string.IsNullOrWhiteSpace(password) ||
             string.IsNullOrWhiteSpace(userClass))
         {
-            await DisplayAlert("Ошибка", "Заполните все поля", "ОК");
+            await DisplayAlert("РћС€РёР±РєР°", "Р—Р°РїРѕР»РЅРёС‚Рµ РІСЃРµ РїРѕР»СЏ", "РћРљ");
             return;
         }
 
-        var existingUser = await _db.GetUserByEmail(email);
-        if (existingUser != null)
+        try
         {
-            await DisplayAlert("Ошибка", "Пользователь с таким Email уже существует", "ОК");
-            return;
+            RegisterBtn.IsEnabled = false;
+            await _apiClient.RegisterAsync(new RegisterRequest
+            {
+                Name = name,
+                Email = email,
+                Password = password,
+                Class = userClass,
+                Grade = TryExtractGrade(userClass)
+            });
+
+            await DisplayAlert("Р“РѕС‚РѕРІРѕ", $"РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ {name} Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ", "РћРљ");
+            await Shell.Current.GoToAsync(nameof(CompleteRegistrationPage));
         }
-
-        var user = new User
+        catch (LearnixApiException ex)
         {
-            Name = name,
-            Email = email,
-            Password = password,
-            Class = userClass
-        };
-
-        await _db.AddUser(user);
-
-        await DisplayAlert("Готово", $"Пользователь {name} зарегистрирован", "ОК");
-        await Shell.Current.GoToAsync(nameof(LoginPage));
-
+            await DisplayAlert("РћС€РёР±РєР°", ex.Message, "РћРљ");
+        }
+        finally
+        {
+            RegisterBtn.IsEnabled = true;
+        }
     }
-    private async void OnBackClicked(object sender, EventArgs e) 
-    { 
-        await Shell.Current.GoToAsync(nameof(LoginPage)); 
+
+    private async void OnBackClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(LoginPage));
+    }
+
+    private static int? TryExtractGrade(string userClass)
+    {
+        var digits = new string(userClass.TakeWhile(char.IsDigit).ToArray());
+        return int.TryParse(digits, out var grade) ? grade : null;
     }
 }

@@ -1,7 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Learnix.API.DTOs
-
 {
     public class RegisterUserDto
     {
@@ -16,5 +15,11 @@ namespace Learnix.API.DTOs
         [Required(ErrorMessage = "Имя обязательно")]
         [MaxLength(100, ErrorMessage = "Имя не должно превышать 100 символов")]
         public string Name { get; set; } = string.Empty;
+
+        [MaxLength(10, ErrorMessage = "Класс не должен превышать 10 символов")]
+        public string? Class { get; set; }
+
+        [Range(7, 11, ErrorMessage = "Learnix сейчас рассчитан на 7-11 классы")]
+        public int? Grade { get; set; }
     }
 }

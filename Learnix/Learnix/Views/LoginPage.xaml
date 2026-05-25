@@ -16,14 +16,12 @@
                    HorizontalOptions="Center" />
 
             <Label Text="Вход в аккаунт"
-                   
                    FontSize="40"
                    HorizontalOptions="Center"
                    FontFamily="GameFontRegular"
                    TextColor="#3AAAE0"
                    Margin="5,0,0,0"/>
 
-            <!-- Поле email -->
             <Entry x:Name="EmailEntry"
                    Placeholder="Введите Email"
                    FontFamily="GameFontRegular"
@@ -35,7 +33,6 @@
                    WidthRequest="280"
                    HeightRequest="45" />
 
-            <!-- Поле пароль -->
             <Entry x:Name="PasswordEntry"
                    FontFamily="GameFontRegular"
                    Placeholder="Введите пароль"
@@ -47,10 +44,8 @@
                    WidthRequest="280"
                    HeightRequest="45" />
 
-            <!-- Кнопка входа -->
             <Button Text="Войти"
                     FontSize="18"
-                    
                     FontFamily="GameFontRegular"
                     x:Name="LoginBtn"
                     BackgroundColor="#AFC9F8"
@@ -58,10 +53,8 @@
                     CornerRadius="10"
                     WidthRequest="180"
                     HeightRequest="45"
-                    Clicked="OnLoginClicked"
-                    />
+                    Clicked="OnLoginClicked"/>
 
-            <!-- Кнопка возврата -->
             <Button Text="Еще нет аккаунта?"
                     x:Name="BackBtn"
                     FontFamily="GameFontRegular"

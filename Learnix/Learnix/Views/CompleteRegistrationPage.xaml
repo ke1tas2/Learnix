@@ -2,37 +2,37 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.Views.CompleteRegistrationPage"
-             Title="CompleteRegistrationPage"
-             >
-    
-    <Grid RowDefinitions="*, Auto"
-          BackgroundColor="#D6F0FA">
+             Title="Добро пожаловать">
 
-        <VerticalStackLayout 
-            Grid.Row="0"
-            Spacing="20"
-            VerticalOptions="Center"
-            HorizontalOptions="Center">
+    <Grid RowDefinitions="*,Auto"
+          BackgroundColor="#D6F0FA"
+          Padding="24">
 
-            <Label  x:Name="WelcomeLabel"
-                    Text="Отлично! Вы успешно вошли в аккаунт"
-                    FontSize="23"
-                    TextColor="#3AAAE0"
-                    FontFamily="GameFontRegular"
-                    HorizontalTextAlignment="Center"
-                    HorizontalOptions="Center"
-                    Opacity="0"
-                    TranslationY="40"/>
+        <VerticalStackLayout Grid.Row="0"
+                             Spacing="20"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
 
-            <Label  x:Name="WelcomeLabel2"
-                    Text="давайте продолжим"
-                    TextColor="Black"
-                    FontSize="20"
-                    FontFamily="GameFontRegular"
-                    HorizontalTextAlignment="Center"
-                    HorizontalOptions="Center"
-                    Opacity="0"
-                    TranslationY="40"/>
+            <Label x:Name="WelcomeLabel"
+                   Text="Отлично! Вы вошли в Learnix"
+                   FontSize="26"
+                   TextColor="#3AAAE0"
+                   FontFamily="GameFontRegular"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   Opacity="0"
+                   TranslationY="40"/>
+
+            <Label x:Name="WelcomeLabel2"
+                   Text="Давайте настроим обучение под вас"
+                   TextColor="Black"
+                   FontSize="20"
+                   FontFamily="GameFontRegular"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   Opacity="0"
+                   TranslationY="40"/>
+
             <Button x:Name="NextBtn"
                     Clicked="NextBtnClicked"
                     Text="Продолжить"
@@ -47,7 +47,5 @@
                     Opacity="0"
                     TranslationY="40"/>
         </VerticalStackLayout>
-
-        
     </Grid>
 </ContentPage>

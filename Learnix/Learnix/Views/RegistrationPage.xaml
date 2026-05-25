@@ -2,34 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.RegistrationPage"
-             Title="RegistrationPage">
+             Title="Регистрация">
 
     <ScrollView BackgroundColor="#D2EDF7">
         <Grid Padding="30"
+              RowDefinitions="Auto,Auto,*,Auto"
               RowSpacing="20"
               VerticalOptions="FillAndExpand"
               HorizontalOptions="FillAndExpand">
 
-            <!-- Строки сетки -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <!-- Логотип -->
-                <RowDefinition Height="Auto"/>
-                <!-- Заголовок -->
-                <RowDefinition Height="*"/>
-                <!-- Поля ввода -->
-                <RowDefinition Height="Auto"/>
-                <!-- Кнопки -->
-            </Grid.RowDefinitions>
-
-            <!-- ЛОГО -->
             <Image Source="logo.png"
                    Grid.Row="0"
                    HeightRequest="70"
                    VerticalOptions="Start"
                    HorizontalOptions="Center"/>
 
-            <!-- Заголовок -->
             <Label Grid.Row="1"
                    Text="Регистрация"
                    FontFamily="GameFontRegular"
@@ -37,10 +24,8 @@
                    VerticalOptions="End"
                    HorizontalOptions="Center"
                    TextColor="#3AAAE0"
-                   Margin="0,40,0,0"
-                   />
+                   Margin="0,40,0,0"/>
 
-            <!-- БЛОК ПОЛЕЙ -->
             <VerticalStackLayout Grid.Row="2"
                                  Spacing="15"
                                  HorizontalOptions="Center"
@@ -89,13 +74,15 @@
                         TextColor="Black"
                         FontSize="20">
                     <Picker.Items>
+                        <x:String>7 класс</x:String>
+                        <x:String>8 класс</x:String>
+                        <x:String>9 класс</x:String>
                         <x:String>10 класс</x:String>
                         <x:String>11 класс</x:String>
                     </Picker.Items>
                 </Picker>
             </VerticalStackLayout>
 
-            <!-- КНОПКИ -->
             <VerticalStackLayout Grid.Row="3"
                                  Spacing="10"
                                  HorizontalOptions="Center"
@@ -105,7 +92,6 @@
                         FontFamily="GameFontRegular"
                         x:Name="RegisterBtn"
                         FontSize="18"
-                        
                         BackgroundColor="#AFC9F8"
                         TextColor="Black"
                         CornerRadius="10"
