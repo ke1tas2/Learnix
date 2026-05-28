@@ -4,57 +4,63 @@
              x:Class="Learnix.Views.SubjectQuestionPage"
              Title="Learnix"
              BackgroundColor="#D6F0FA">
-    <Grid RowDefinitions="Auto,*,Auto" Padding="24">
-        <Image Source="logo.png"
-               Grid.Row="0"
-               HeightRequest="64"
-               HorizontalOptions="Center"
-               Margin="0,24,0,16"/>
+    <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="20">
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,16,0,10">
+            <VerticalStackLayout Spacing="2">
+                <Label x:Name="GreetingLabel"
+                       Text="Learnix"
+                       FontFamily="GameFontRegular"
+                       FontSize="30"
+                       TextColor="#3AAAE0"/>
+                <Label x:Name="GoalLabel"
+                       Text="Сегодняшняя цель"
+                       FontSize="14"
+                       TextColor="Black"/>
+            </VerticalStackLayout>
 
-        <VerticalStackLayout Grid.Row="1"
-                             Spacing="16"
-                             VerticalOptions="Center"
-                             HorizontalOptions="Center">
-            <Label Text="Учебная дорожка готова"
-                   FontFamily="GameFontRegular"
-                   FontSize="32"
-                   TextColor="#3AAAE0"
-                   HorizontalTextAlignment="Center"/>
+            <Button Grid.Column="1"
+                    Text="Профиль"
+                    FontFamily="GameFontRegular"
+                    FontSize="16"
+                    BackgroundColor="#AFC9F8"
+                    TextColor="Black"
+                    CornerRadius="10"
+                    Clicked="OnRefreshClicked"/>
+        </Grid>
 
-            <Label Text="Начните с короткого уровня на 5-10 минут и удерживайте серию занятий."
-                   FontSize="16"
-                   TextColor="Black"
-                   WidthRequest="300"
-                   HorizontalTextAlignment="Center"/>
-
-            <Border Stroke="#3AAAE0"
-                    StrokeThickness="2"
-                    StrokeShape="RoundRectangle 12"
-                    BackgroundColor="White"
-                    Padding="16"
-                    WidthRequest="300">
-                <VerticalStackLayout Spacing="6">
-                    <Label Text="Первый уровень"
-                           FontFamily="GameFontRegular"
-                           FontSize="20"
-                           TextColor="Black"/>
-                    <Label Text="Повторение основ и несколько быстрых вопросов без перегруза."
-                           FontSize="13"
-                           TextColor="DimGray"/>
+        <Border Grid.Row="1"
+                Stroke="#3AAAE0"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 12"
+                BackgroundColor="White"
+                Padding="12"
+                Margin="0,0,0,14">
+            <Grid ColumnDefinitions="*,*,*">
+                <VerticalStackLayout>
+                    <Label Text="XP" FontSize="12" TextColor="DimGray"/>
+                    <Label x:Name="XpLabel" FontSize="20" FontFamily="GameFontRegular" TextColor="Black"/>
                 </VerticalStackLayout>
-            </Border>
-        </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1">
+                    <Label Text="Серия" FontSize="12" TextColor="DimGray"/>
+                    <Label x:Name="StreakLabel" FontSize="20" FontFamily="GameFontRegular" TextColor="Black"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="2">
+                    <Label Text="Точность" FontSize="12" TextColor="DimGray"/>
+                    <Label x:Name="AccuracyLabel" FontSize="20" FontFamily="GameFontRegular" TextColor="Black"/>
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
 
-        <Button Grid.Row="2"
-                Text="На главный экран"
+        <ScrollView Grid.Row="2">
+            <VerticalStackLayout x:Name="LevelStack" Spacing="14"/>
+        </ScrollView>
+
+        <Button Grid.Row="3"
+                Text="Изменить предметы"
                 FontFamily="GameFontRegular"
                 FontSize="18"
-                BackgroundColor="#AFC9F8"
-                TextColor="Black"
-                CornerRadius="10"
-                WidthRequest="250"
-                HeightRequest="45"
-                HorizontalOptions="Center"
-                Clicked="OnHomeClicked"/>
+                BackgroundColor="Transparent"
+                TextColor="#3AAAE0"
+                Clicked="OnChangeSubjectsClicked"/>
     </Grid>
 </ContentPage>

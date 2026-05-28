@@ -81,6 +81,18 @@ build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.HowLongQuest
 build_metadata.AdditionalFiles.TargetPath = Views\HowLongQuestionPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HowLongQuestionPage.xaml
 
+[D:/Learnix/Learnix/Learnix/Views/LessonPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.LessonPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\LessonPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\LessonPage.xaml
+
+[D:/Learnix/Learnix/Learnix/Views/LessonResultPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.LessonResultPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\LessonResultPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\LessonResultPage.xaml
+
 [D:/Learnix/Learnix/Learnix/Views/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Learnix.Views.LoginPage.xaml

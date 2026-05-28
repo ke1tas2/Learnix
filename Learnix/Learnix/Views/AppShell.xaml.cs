@@ -16,6 +16,8 @@ namespace Learnix
             Routing.RegisterRoute(nameof(HowKnowPage), typeof(HowKnowPage));
             Routing.RegisterRoute(nameof(WhatSubject), typeof(WhatSubject));
             Routing.RegisterRoute(nameof(SubjectQuestionPage), typeof(SubjectQuestionPage));
+            Routing.RegisterRoute(nameof(LessonPage), typeof(LessonPage));
+            Routing.RegisterRoute(nameof(LessonResultPage), typeof(LessonResultPage));
         }
     }
 }

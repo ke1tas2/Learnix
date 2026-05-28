@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Learnix")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+a63e32eca0a43866235f72861817202c0c3c7ffb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+4d772fc86f9e55d118c67e94e233fac12dad30b1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Learnix")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Learnix")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -47,6 +47,37 @@ namespace Learnix.Services
             return await ReadResponseAsync<UserDto>(response);
         }
 
+        public async Task<ProfileStatsDto> GetProfileAsync()
+        {
+            ApplyAuthorizationHeader();
+            var response = await _httpClient.GetAsync("api/profile");
+            return await ReadResponseAsync<ProfileStatsDto>(response);
+        }
+
+        public async Task<List<LearningLevelDto>> GetLevelsAsync(int subjectId, int? grade = null)
+        {
+            ApplyAuthorizationHeader();
+            var url = grade.HasValue
+                ? $"api/catalog/subjects/{subjectId}/levels?grade={grade.Value}"
+                : $"api/catalog/subjects/{subjectId}/levels";
+            var response = await _httpClient.GetAsync(url);
+            return await ReadResponseAsync<List<LearningLevelDto>>(response);
+        }
+
+        public async Task<LessonDto> GetLessonAsync(int levelId)
+        {
+            ApplyAuthorizationHeader();
+            var response = await _httpClient.GetAsync($"api/learning/levels/{levelId}");
+            return await ReadResponseAsync<LessonDto>(response);
+        }
+
+        public async Task<LessonResultDto> CompleteLessonAsync(int levelId, SubmitLessonRequest request)
+        {
+            ApplyAuthorizationHeader();
+            var response = await _httpClient.PostAsJsonAsync($"api/learning/levels/{levelId}/complete", request, JsonOptions);
+            return await ReadResponseAsync<LessonResultDto>(response);
+        }
+
         public void Logout()
         {
             Preferences.Remove(TokenPreferenceKey);
@@ -177,5 +208,92 @@ namespace Learnix.Services
         public string PreparednessLevel { get; set; } = "standard";
         public int DailyGoalMinutes { get; set; } = 10;
         public List<int> SubjectIds { get; set; } = new();
+    }
+
+    public class ProfileStatsDto
+    {
+        public UserDto User { get; set; } = new();
+        public int SelectedSubjectsCount { get; set; }
+        public int CompletedLevelsCount { get; set; }
+        public int AttemptsCount { get; set; }
+        public int TotalMistakes { get; set; }
+        public int AverageScorePercent { get; set; }
+        public List<SubjectDto> SelectedSubjects { get; set; } = new();
+        public List<RecentAttemptDto> RecentAttempts { get; set; } = new();
+    }
+
+    public class RecentAttemptDto
+    {
+        public int AttemptId { get; set; }
+        public string SubjectName { get; set; } = string.Empty;
+        public string LevelTitle { get; set; } = string.Empty;
+        public int ScorePercent { get; set; }
+        public int Mistakes { get; set; }
+        public int EarnedXp { get; set; }
+        public DateTime? CompletedAt { get; set; }
+    }
+
+    public class LearningLevelDto
+    {
+        public int Id { get; set; }
+        public int SubjectId { get; set; }
+        public int Grade { get; set; }
+        public int Order { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string? Description { get; set; }
+        public int XpReward { get; set; }
+        public int ExerciseCount { get; set; }
+        public string Status { get; set; } = "not_started";
+        public int BestScorePercent { get; set; }
+    }
+
+    public class LessonDto
+    {
+        public LearningLevelDto Level { get; set; } = new();
+        public List<ExerciseDto> Exercises { get; set; } = new();
+    }
+
+    public class ExerciseDto
+    {
+        public int Id { get; set; }
+        public string Type { get; set; } = string.Empty;
+        public string Prompt { get; set; } = string.Empty;
+        public List<string> Options { get; set; } = new();
+        public int SortOrder { get; set; }
+        public int XpReward { get; set; }
+    }
+
+    public class SubmitLessonRequest
+    {
+        public List<SubmitExerciseAnswerRequest> Answers { get; set; } = new();
+    }
+
+    public class SubmitExerciseAnswerRequest
+    {
+        public int ExerciseId { get; set; }
+        public string Answer { get; set; } = string.Empty;
+    }
+
+    public class LessonResultDto
+    {
+        public int AttemptId { get; set; }
+        public int TotalQuestions { get; set; }
+        public int CorrectAnswers { get; set; }
+        public int Mistakes { get; set; }
+        public int ScorePercent { get; set; }
+        public int EarnedXp { get; set; }
+        public int TotalXp { get; set; }
+        public string LevelStatus { get; set; } = "not_started";
+        public List<LessonAnswerResultDto> Answers { get; set; } = new();
+    }
+
+    public class LessonAnswerResultDto
+    {
+        public int ExerciseId { get; set; }
+        public string Prompt { get; set; } = string.Empty;
+        public string UserAnswer { get; set; } = string.Empty;
+        public string CorrectAnswer { get; set; } = string.Empty;
+        public bool IsCorrect { get; set; }
+        public string? Explanation { get; set; }
     }
 }

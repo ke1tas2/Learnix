@@ -36,6 +36,7 @@ namespace Learnix
                 BaseAddress = new Uri(GetApiBaseUrl())
             });
             builder.Services.AddSingleton<LearnixApiClient>();
+            builder.Services.AddSingleton<LessonSessionState>();
 
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<RegistrationPage>();
@@ -46,6 +47,8 @@ namespace Learnix
             builder.Services.AddTransient<HowKnowPage>();
             builder.Services.AddTransient<WhatSubject>();
             builder.Services.AddTransient<SubjectQuestionPage>();
+            builder.Services.AddTransient<LessonPage>();
+            builder.Services.AddTransient<LessonResultPage>();
 
             return builder.Build();
         }

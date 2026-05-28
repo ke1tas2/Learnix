@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Learnix.Views.LessonResultPage"
+             Title="Результат"
+             BackgroundColor="#D6F0FA">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="20">
+        <VerticalStackLayout Grid.Row="0" Spacing="4" Margin="0,20,0,12">
+            <Label x:Name="ResultTitleLabel"
+                   Text="Результат"
+                   FontFamily="GameFontRegular"
+                   FontSize="32"
+                   TextColor="#3AAAE0"
+                   HorizontalTextAlignment="Center"/>
+            <Label x:Name="ResultSubtitleLabel"
+                   Text="Ошибки и опыт"
+                   FontSize="16"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center"/>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout x:Name="ResultStack" Spacing="12"/>
+        </ScrollView>
+
+        <Button Grid.Row="2"
+                Text="Вернуться к уровням"
+                FontFamily="GameFontRegular"
+                FontSize="18"
+                BackgroundColor="#AFC9F8"
+                TextColor="Black"
+                CornerRadius="10"
+                HeightRequest="45"
+                Margin="0,16,0,0"
+                Clicked="OnBackToDashboardClicked"/>
+    </Grid>
+</ContentPage>
