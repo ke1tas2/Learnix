@@ -169,9 +169,9 @@ public partial class SubjectQuestionPage : ContentPage
         };
     }
 
-    private async void OnRefreshClicked(object sender, EventArgs e)
+    private async void OnProfileClicked(object sender, EventArgs e)
     {
-        await LoadDashboardAsync();
+        await Shell.Current.GoToAsync(nameof(ProfilePage));
     }
 
     private async void OnChangeSubjectsClicked(object sender, EventArgs e)

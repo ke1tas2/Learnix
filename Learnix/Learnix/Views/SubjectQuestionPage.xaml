@@ -25,7 +25,7 @@
                     BackgroundColor="#AFC9F8"
                     TextColor="Black"
                     CornerRadius="10"
-                    Clicked="OnRefreshClicked"/>
+                    Clicked="OnProfileClicked"/>
         </Grid>
 
         <Border Grid.Row="1"

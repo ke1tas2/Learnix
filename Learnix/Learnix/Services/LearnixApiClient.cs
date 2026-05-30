@@ -36,21 +36,21 @@ namespace Learnix.Services
         {
             ApplyAuthorizationHeader();
             var url = grade.HasValue ? $"api/catalog/subjects?grade={grade.Value}" : "api/catalog/subjects";
-            var response = await _httpClient.GetAsync(url);
+            var response = await SendAsync(() => _httpClient.GetAsync(url));
             return await ReadResponseAsync<List<SubjectDto>>(response);
         }
 
         public async Task<UserDto> UpdateOnboardingAsync(UpdateOnboardingRequest request)
         {
             ApplyAuthorizationHeader();
-            var response = await _httpClient.PutAsJsonAsync("api/profile/onboarding", request, JsonOptions);
+            var response = await SendAsync(() => _httpClient.PutAsJsonAsync("api/profile/onboarding", request, JsonOptions));
             return await ReadResponseAsync<UserDto>(response);
         }
 
         public async Task<ProfileStatsDto> GetProfileAsync()
         {
             ApplyAuthorizationHeader();
-            var response = await _httpClient.GetAsync("api/profile");
+            var response = await SendAsync(() => _httpClient.GetAsync("api/profile"));
             return await ReadResponseAsync<ProfileStatsDto>(response);
         }
 
@@ -60,21 +60,21 @@ namespace Learnix.Services
             var url = grade.HasValue
                 ? $"api/catalog/subjects/{subjectId}/levels?grade={grade.Value}"
                 : $"api/catalog/subjects/{subjectId}/levels";
-            var response = await _httpClient.GetAsync(url);
+            var response = await SendAsync(() => _httpClient.GetAsync(url));
             return await ReadResponseAsync<List<LearningLevelDto>>(response);
         }
 
         public async Task<LessonDto> GetLessonAsync(int levelId)
         {
             ApplyAuthorizationHeader();
-            var response = await _httpClient.GetAsync($"api/learning/levels/{levelId}");
+            var response = await SendAsync(() => _httpClient.GetAsync($"api/learning/levels/{levelId}"));
             return await ReadResponseAsync<LessonDto>(response);
         }
 
         public async Task<LessonResultDto> CompleteLessonAsync(int levelId, SubmitLessonRequest request)
         {
             ApplyAuthorizationHeader();
-            var response = await _httpClient.PostAsJsonAsync($"api/learning/levels/{levelId}/complete", request, JsonOptions);
+            var response = await SendAsync(() => _httpClient.PostAsJsonAsync($"api/learning/levels/{levelId}/complete", request, JsonOptions));
             return await ReadResponseAsync<LessonResultDto>(response);
         }
 
@@ -87,8 +87,24 @@ namespace Learnix.Services
         private async Task<T> PostAsync<T>(string url, object body)
         {
             ApplyAuthorizationHeader();
-            var response = await _httpClient.PostAsJsonAsync(url, body, JsonOptions);
+            var response = await SendAsync(() => _httpClient.PostAsJsonAsync(url, body, JsonOptions));
             return await ReadResponseAsync<T>(response);
+        }
+
+        private static async Task<HttpResponseMessage> SendAsync(Func<Task<HttpResponseMessage>> send)
+        {
+            try
+            {
+                return await send();
+            }
+            catch (HttpRequestException)
+            {
+                throw new LearnixApiException("API не запущен. Сначала запустите Learnix.API на http://localhost:5199, затем повторите действие.");
+            }
+            catch (TaskCanceledException)
+            {
+                throw new LearnixApiException("API не ответил вовремя. Проверьте, что Learnix.API запущен на http://localhost:5199.");
+            }
         }
 
         private async Task<T> ReadResponseAsync<T>(HttpResponseMessage response)

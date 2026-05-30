@@ -49,6 +49,7 @@ namespace Learnix
             builder.Services.AddTransient<SubjectQuestionPage>();
             builder.Services.AddTransient<LessonPage>();
             builder.Services.AddTransient<LessonResultPage>();
+            builder.Services.AddTransient<ProfilePage>();
 
             return builder.Build();
         }
