@@ -66,6 +66,11 @@ namespace Learnix.API.Data
                 .IsRequired()
                 .HasDefaultValue(0);
 
+                entity.Property(u => u.Role)
+                .IsRequired()
+                .HasMaxLength(32)
+                .HasDefaultValue("User");
+
                 entity.Property(u => u.CreatedAt)
                 .IsRequired()
                 .HasDefaultValueSql("CURRENT_TIMESTAMP");

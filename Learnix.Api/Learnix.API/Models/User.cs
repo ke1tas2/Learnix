@@ -49,6 +49,11 @@ namespace Learnix.API.Models
         [Column("total_xp")]
         public int TotalXp { get; set; }
 
+        [Required]
+        [MaxLength(32)]
+        [Column("role")]
+        public string Role { get; set; } = "User";
+
         [Column("last_activity_date")]
         public DateTime? LastActivityDate { get; set; }
 

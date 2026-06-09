@@ -14,6 +14,7 @@ namespace Learnix.API.DTOs
         public int CurrentStreakDays { get; set; }
         public int BestStreakDays { get; set; }
         public int TotalXp { get; set; }
+        public string Role { get; set; } = "User";
         public DateTime CreatedAt { get; set; }
 
         public static UserResponseDto FromUser(User user)
@@ -30,6 +31,7 @@ namespace Learnix.API.DTOs
                 CurrentStreakDays = user.CurrentStreakDays,
                 BestStreakDays = user.BestStreakDays,
                 TotalXp = user.TotalXp,
+                Role = user.Role,
                 CreatedAt = user.CreatedAt
             };
         }

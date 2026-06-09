@@ -8,6 +8,8 @@ namespace Learnix.API.Data
     {
         private const string OfficialSourceTitle = "Национальный образовательный портал: электронные версии учебных пособий";
         private const string OfficialSourceUrl = "https://e-padruchnik.adu.by/";
+        private const string AdminEmail = "admin@learnix.local";
+        private const string AdminPassword = "Admin123!";
 
         public static async Task SeedAsync(AppDbContext context)
         {
@@ -18,6 +20,7 @@ namespace Learnix.API.Data
             }
 
             await SeedLevelsAsync(context);
+            await SeedAdminAsync(context);
         }
 
         private static IEnumerable<Subject> CreateSubjects()
@@ -272,6 +275,32 @@ namespace Learnix.API.Data
                 SortOrder = 1,
                 XpReward = 5
             };
+        }
+
+        private static async Task SeedAdminAsync(AppDbContext context)
+        {
+            var admin = await context.Users.FirstOrDefaultAsync(u => u.Email == AdminEmail);
+            if (admin == null)
+            {
+                admin = new User
+                {
+                    Email = AdminEmail,
+                    Name = "Learnix Administrator",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword(AdminPassword),
+                    Role = "Admin",
+                    DailyGoalMinutes = 10,
+                    IsActive = true
+                };
+
+                context.Users.Add(admin);
+            }
+            else
+            {
+                admin.Role = "Admin";
+                admin.IsActive = true;
+            }
+
+            await context.SaveChangesAsync();
         }
     }
 }

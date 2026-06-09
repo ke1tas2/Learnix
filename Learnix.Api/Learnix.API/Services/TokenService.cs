@@ -28,6 +28,7 @@ namespace Learnix.API.Services
                 ["sub"] = user.Id,
                 ["email"] = user.Email,
                 ["name"] = user.Name,
+                ["role"] = user.Role,
                 ["exp"] = new DateTimeOffset(expiresAt).ToUnixTimeSeconds()
             };
 
@@ -125,6 +126,9 @@ namespace Learnix.API.Services
 
         [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
+
+        [JsonPropertyName("role")]
+        public string Role { get; set; } = "User";
 
         [JsonPropertyName("exp")]
         public long ExpiresAtUnix { get; set; }
