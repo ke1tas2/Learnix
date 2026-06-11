@@ -36,7 +36,7 @@ public partial class LoginPage : ContentPage
                 Password = password
             });
 
-            await Shell.Current.GoToAsync(nameof(CompleteRegistrationPage));
+            await PostAuthNavigation.NavigateAsync(_apiClient);
         }
         catch (LearnixApiException ex)
         {

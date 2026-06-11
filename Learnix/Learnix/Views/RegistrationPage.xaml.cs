@@ -29,6 +29,12 @@ public partial class RegistrationPage : ContentPage
             return;
         }
 
+        if (password.Length < 6)
+        {
+            await DisplayAlert("Ошибка", "Пароль должен содержать минимум 6 символов", "ОК");
+            return;
+        }
+
         try
         {
             RegisterBtn.IsEnabled = false;
@@ -42,7 +48,7 @@ public partial class RegistrationPage : ContentPage
             });
 
             await DisplayAlert("Готово", $"Пользователь {name} зарегистрирован", "ОК");
-            await Shell.Current.GoToAsync(nameof(CompleteRegistrationPage));
+            await PostAuthNavigation.NavigateAsync(_apiClient);
         }
         catch (LearnixApiException ex)
         {

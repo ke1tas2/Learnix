@@ -21,18 +21,9 @@
             <VerticalStackLayout x:Name="ProfileStack" Spacing="14"/>
         </ScrollView>
 
-        <Grid Grid.Row="2" ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,16,0,0">
-            <Button Text="К уровням"
-                    FontFamily="GameFontRegular"
-                    FontSize="18"
-                    BackgroundColor="#AFC9F8"
-                    TextColor="Black"
-                    CornerRadius="10"
-                    HeightRequest="45"
-                    Clicked="OnBackClicked"/>
-
-            <Button Grid.Column="1"
-                    Text="Выйти"
+        <VerticalStackLayout Grid.Row="2" Spacing="10" Margin="0,16,0,0">
+            <Button x:Name="AdminBtn"
+                    Text="Админ-панель"
                     FontFamily="GameFontRegular"
                     FontSize="18"
                     BackgroundColor="White"
@@ -41,7 +32,31 @@
                     TextColor="Black"
                     CornerRadius="10"
                     HeightRequest="45"
-                    Clicked="OnLogoutClicked"/>
-        </Grid>
+                    IsVisible="False"
+                    Clicked="OnAdminClicked"/>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Text="К уровням"
+                        FontFamily="GameFontRegular"
+                        FontSize="18"
+                        BackgroundColor="#AFC9F8"
+                        TextColor="Black"
+                        CornerRadius="10"
+                        HeightRequest="45"
+                        Clicked="OnBackClicked"/>
+
+                <Button Grid.Column="1"
+                        Text="Выйти"
+                        FontFamily="GameFontRegular"
+                        FontSize="18"
+                        BackgroundColor="White"
+                        BorderColor="#3AAAE0"
+                        BorderWidth="2"
+                        TextColor="Black"
+                        CornerRadius="10"
+                        HeightRequest="45"
+                        Clicked="OnLogoutClicked"/>
+            </Grid>
+        </VerticalStackLayout>
     </Grid>
 </ContentPage>

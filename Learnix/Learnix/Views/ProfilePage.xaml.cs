@@ -29,6 +29,7 @@ public partial class ProfilePage : ContentPage
             var profile = await _apiClient.GetProfileAsync();
             NameLabel.Text = profile.User.Name;
             ClassLabel.Text = $"{GradeText(profile.User.Grade)} · цель {profile.User.DailyGoalMinutes} минут";
+            AdminBtn.IsVisible = profile.User.Role == "Admin";
 
             ProfileStack.Children.Clear();
             ProfileStack.Children.Add(CreateStatsCard(profile));
@@ -178,6 +179,11 @@ public partial class ProfilePage : ContentPage
     private async void OnBackClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("..");
+    }
+
+    private async void OnAdminClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(AdminPage));
     }
 
     private async void OnLogoutClicked(object sender, EventArgs e)

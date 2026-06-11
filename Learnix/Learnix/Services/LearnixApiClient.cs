@@ -78,6 +78,47 @@ namespace Learnix.Services
             return await ReadResponseAsync<LessonResultDto>(response);
         }
 
+        public async Task<AdminStatsDto> GetAdminStatsAsync()
+        {
+            ApplyAuthorizationHeader();
+            var response = await SendAsync(() => _httpClient.GetAsync("api/admin/stats"));
+            return await ReadResponseAsync<AdminStatsDto>(response);
+        }
+
+        public async Task<List<AdminUserDto>> GetAdminUsersAsync()
+        {
+            ApplyAuthorizationHeader();
+            var response = await SendAsync(() => _httpClient.GetAsync("api/admin/users"));
+            return await ReadResponseAsync<List<AdminUserDto>>(response);
+        }
+
+        public async Task<AdminUserDto> UpdateAdminUserRoleAsync(int userId, string role)
+        {
+            ApplyAuthorizationHeader();
+            var response = await SendAsync(() => _httpClient.PutAsJsonAsync(
+                $"api/admin/users/{userId}/role",
+                new UpdateUserRoleRequest { Role = role },
+                JsonOptions));
+            return await ReadResponseAsync<AdminUserDto>(response);
+        }
+
+        public async Task<AdminUserDto> UpdateAdminUserActiveAsync(int userId, bool isActive)
+        {
+            ApplyAuthorizationHeader();
+            var response = await SendAsync(() => _httpClient.PutAsJsonAsync(
+                $"api/admin/users/{userId}/active",
+                new UpdateUserActiveRequest { IsActive = isActive },
+                JsonOptions));
+            return await ReadResponseAsync<AdminUserDto>(response);
+        }
+
+        public async Task<List<AdminSubjectDto>> GetAdminSubjectsAsync()
+        {
+            ApplyAuthorizationHeader();
+            var response = await SendAsync(() => _httpClient.GetAsync("api/admin/subjects"));
+            return await ReadResponseAsync<List<AdminSubjectDto>>(response);
+        }
+
         public void Logout()
         {
             Preferences.Remove(TokenPreferenceKey);
@@ -143,14 +184,47 @@ namespace Learnix.Services
             try
             {
                 using var document = JsonDocument.Parse(content);
-                if (document.RootElement.TryGetProperty("error", out var error))
+                var root = document.RootElement;
+
+                if (root.TryGetProperty("error", out var error))
                 {
                     return error.GetString() ?? "Сервер вернул ошибку";
                 }
 
-                if (document.RootElement.TryGetProperty("title", out var title))
+                if (root.TryGetProperty("errors", out var errors) && errors.ValueKind == JsonValueKind.Object)
                 {
-                    return title.GetString() ?? "Сервер вернул ошибку";
+                    var messages = new List<string>();
+                    foreach (var field in errors.EnumerateObject())
+                    {
+                        if (field.Value.ValueKind != JsonValueKind.Array)
+                        {
+                            continue;
+                        }
+
+                        foreach (var message in field.Value.EnumerateArray())
+                        {
+                            var text = message.GetString();
+                            if (!string.IsNullOrWhiteSpace(text))
+                            {
+                                messages.Add(text);
+                            }
+                        }
+                    }
+
+                    if (messages.Count > 0)
+                    {
+                        return string.Join("\n", messages);
+                    }
+                }
+
+                if (root.TryGetProperty("title", out var title))
+                {
+                    var titleText = title.GetString();
+                    if (!string.IsNullOrWhiteSpace(titleText) &&
+                        !titleText.Contains("validation errors", StringComparison.OrdinalIgnoreCase))
+                    {
+                        return titleText;
+                    }
                 }
             }
             catch
@@ -158,7 +232,7 @@ namespace Learnix.Services
                 return content;
             }
 
-            return content;
+            return "Проверьте введённые данные и попробуйте снова";
         }
     }
 
@@ -312,5 +386,64 @@ namespace Learnix.Services
         public string CorrectAnswer { get; set; } = string.Empty;
         public bool IsCorrect { get; set; }
         public string? Explanation { get; set; }
+    }
+
+    public class AdminStatsDto
+    {
+        public int UsersCount { get; set; }
+        public int ActiveUsersCount { get; set; }
+        public int AdminsCount { get; set; }
+        public int SubjectsCount { get; set; }
+        public int ActiveSubjectsCount { get; set; }
+        public int LevelsCount { get; set; }
+        public int ActiveLevelsCount { get; set; }
+        public int ExercisesCount { get; set; }
+        public int AttemptsCount { get; set; }
+        public int CompletedAttemptsCount { get; set; }
+        public int TotalMistakes { get; set; }
+        public int AverageScorePercent { get; set; }
+    }
+
+    public class AdminUserDto
+    {
+        public int Id { get; set; }
+        public string Email { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string? Class { get; set; }
+        public int? Grade { get; set; }
+        public string Role { get; set; } = "User";
+        public bool IsActive { get; set; }
+        public int DailyGoalMinutes { get; set; }
+        public int CurrentStreakDays { get; set; }
+        public int BestStreakDays { get; set; }
+        public int TotalXp { get; set; }
+        public int CompletedLevelsCount { get; set; }
+        public int AttemptsCount { get; set; }
+        public int TotalMistakes { get; set; }
+        public DateTime CreatedAt { get; set; }
+    }
+
+    public class UpdateUserRoleRequest
+    {
+        public string Role { get; set; } = "User";
+    }
+
+    public class UpdateUserActiveRequest
+    {
+        public bool IsActive { get; set; } = true;
+    }
+
+    public class AdminSubjectDto
+    {
+        public int Id { get; set; }
+        public string Code { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string? Description { get; set; }
+        public string Grades { get; set; } = string.Empty;
+        public string ColorHex { get; set; } = string.Empty;
+        public string IconKey { get; set; } = string.Empty;
+        public int SortOrder { get; set; }
+        public bool IsActive { get; set; }
+        public int LevelsCount { get; set; }
     }
 }

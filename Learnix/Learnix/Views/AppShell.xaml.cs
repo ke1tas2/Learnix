@@ -19,6 +19,7 @@ namespace Learnix
             Routing.RegisterRoute(nameof(LessonPage), typeof(LessonPage));
             Routing.RegisterRoute(nameof(LessonResultPage), typeof(LessonResultPage));
             Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
+            Routing.RegisterRoute(nameof(AdminPage), typeof(AdminPage));
         }
     }
 }

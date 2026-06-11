@@ -64,23 +64,37 @@
                        HeightRequest="45"
                        FontSize="20"/>
 
-                <Picker x:Name="ClassPicker"
-                        FontFamily="GameFontRegular"
-                        Title="Выберите класс"
-                        TitleColor="Black"
-                        WidthRequest="280"
-                        HeightRequest="50"
+                <Label Text="Минимум 6 символов"
+                       FontSize="13"
+                       TextColor="DimGray"
+                       HorizontalOptions="Start"
+                       Margin="4,-8,0,0"/>
+
+                <Border Stroke="#3AAAE0"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 8"
                         BackgroundColor="Transparent"
-                        TextColor="Black"
-                        FontSize="20">
-                    <Picker.Items>
-                        <x:String>7 класс</x:String>
-                        <x:String>8 класс</x:String>
-                        <x:String>9 класс</x:String>
-                        <x:String>10 класс</x:String>
-                        <x:String>11 класс</x:String>
-                    </Picker.Items>
-                </Picker>
+                        WidthRequest="280"
+                        HeightRequest="60"
+                        Padding="12,8">
+                    <Picker x:Name="ClassPicker"
+                            FontFamily="GameFontRegular"
+                            Title="Выберите класс"
+                            TitleColor="Black"
+                            BackgroundColor="Transparent"
+                            TextColor="Black"
+                            FontSize="18"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Fill">
+                        <Picker.Items>
+                            <x:String>7 класс</x:String>
+                            <x:String>8 класс</x:String>
+                            <x:String>9 класс</x:String>
+                            <x:String>10 класс</x:String>
+                            <x:String>11 класс</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Border>
             </VerticalStackLayout>
 
             <VerticalStackLayout Grid.Row="3"

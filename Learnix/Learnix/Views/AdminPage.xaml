@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Learnix.Views.AdminPage"
+             Title="Админ-панель"
+             BackgroundColor="#D6F0FA">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="20">
+        <VerticalStackLayout Grid.Row="0" Spacing="4" Margin="0,18,0,14">
+            <Label Text="Админ-панель"
+                   FontFamily="GameFontRegular"
+                   FontSize="32"
+                   TextColor="#3AAAE0"/>
+            <Label x:Name="SubtitleLabel"
+                   Text="Управление Learnix"
+                   FontSize="15"
+                   TextColor="Black"/>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout x:Name="AdminStack" Spacing="14"/>
+        </ScrollView>
+
+        <Grid Grid.Row="2" ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,16,0,0">
+            <Button Text="К обучению"
+                    FontFamily="GameFontRegular"
+                    FontSize="18"
+                    BackgroundColor="#AFC9F8"
+                    TextColor="Black"
+                    CornerRadius="10"
+                    HeightRequest="45"
+                    Clicked="OnLearningClicked"/>
+
+            <Button Grid.Column="1"
+                    Text="Выйти"
+                    FontFamily="GameFontRegular"
+                    FontSize="18"
+                    BackgroundColor="White"
+                    BorderColor="#3AAAE0"
+                    BorderWidth="2"
+                    TextColor="Black"
+                    CornerRadius="10"
+                    HeightRequest="45"
+                    Clicked="OnLogoutClicked"/>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -50312,17 +50312,17 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vaseg\\.nuget\\packages\\": {},
+    "C:\\Users\\vaseg\\AppData\\Local\\Temp\\cursor-sandbox-cache\\9cbf91319dff31fae2c0643cf0cb15f2\\nuget": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learnix\\Learnix\\Learnix\\Learnix.csproj",
+      "projectUniqueName": "d:\\Learnix\\Learnix\\Learnix\\Learnix.csproj",
       "projectName": "Learnix",
-      "projectPath": "D:\\Learnix\\Learnix\\Learnix\\Learnix.csproj",
-      "packagesPath": "C:\\Users\\vaseg\\.nuget\\packages\\",
-      "outputPath": "D:\\Learnix\\Learnix\\Learnix\\obj\\",
+      "projectPath": "d:\\Learnix\\Learnix\\Learnix\\Learnix.csproj",
+      "packagesPath": "C:\\Users\\vaseg\\AppData\\Local\\Temp\\cursor-sandbox-cache\\9cbf91319dff31fae2c0643cf0cb15f2\\nuget",
+      "outputPath": "d:\\Learnix\\Learnix\\Learnix\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

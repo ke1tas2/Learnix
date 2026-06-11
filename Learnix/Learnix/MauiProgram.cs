@@ -50,6 +50,7 @@ namespace Learnix
             builder.Services.AddTransient<LessonPage>();
             builder.Services.AddTransient<LessonResultPage>();
             builder.Services.AddTransient<ProfilePage>();
+            builder.Services.AddTransient<AdminPage>();
 
             return builder.Build();
         }
