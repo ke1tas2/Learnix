@@ -6,11 +6,15 @@ namespace Learnix;
 public partial class RegistrationPage : ContentPage
 {
     private readonly LearnixApiClient _apiClient;
+    private readonly List<Button> _gradeButtons = new();
+    private int? _selectedGrade;
 
     public RegistrationPage(LearnixApiClient apiClient)
     {
         InitializeComponent();
         _apiClient = apiClient;
+        _gradeButtons.AddRange(new[] { Grade7Button, Grade8Button, Grade9Button, Grade10Button, Grade11Button });
+        SelectGrade(7);
     }
 
     private async void OnRegisterClicked(object sender, EventArgs e)
@@ -18,7 +22,7 @@ public partial class RegistrationPage : ContentPage
         var name = NameEntry.Text?.Trim() ?? string.Empty;
         var email = EmailEntry.Text?.Trim() ?? string.Empty;
         var password = PasswordEntry.Text ?? string.Empty;
-        var userClass = ClassPicker.SelectedItem?.ToString() ?? string.Empty;
+        var userClass = _selectedGrade.HasValue ? $"{_selectedGrade.Value} класс" : string.Empty;
 
         if (string.IsNullOrWhiteSpace(name) ||
             string.IsNullOrWhiteSpace(email) ||
@@ -44,7 +48,7 @@ public partial class RegistrationPage : ContentPage
                 Email = email,
                 Password = password,
                 Class = userClass,
-                Grade = TryExtractGrade(userClass)
+                Grade = _selectedGrade
             });
 
             await DisplayAlert("Готово", $"Пользователь {name} зарегистрирован", "ОК");
@@ -65,9 +69,30 @@ public partial class RegistrationPage : ContentPage
         await Shell.Current.GoToAsync(nameof(LoginPage));
     }
 
-    private static int? TryExtractGrade(string userClass)
+    private void OnGradeClicked(object sender, EventArgs e)
     {
-        var digits = new string(userClass.TakeWhile(char.IsDigit).ToArray());
-        return int.TryParse(digits, out var grade) ? grade : null;
+        if (sender is Button button &&
+            int.TryParse(button.CommandParameter?.ToString(), out var grade))
+        {
+            SelectGrade(grade);
+        }
+    }
+
+    private void SelectGrade(int grade)
+    {
+        _selectedGrade = grade;
+
+        foreach (var button in _gradeButtons)
+        {
+            var isSelected = button.CommandParameter?.ToString() == grade.ToString();
+            button.BackgroundColor = isSelected ? Color.FromArgb("#58CC02") : Colors.White;
+            button.TextColor = isSelected ? Colors.White : Colors.Black;
+            button.BorderColor = Color.FromArgb(isSelected ? "#58CC02" : "#E5E5E5");
+            button.BorderWidth = 2;
+            button.CornerRadius = 14;
+            button.FontFamily = "GameFontRegular";
+            button.FontSize = 18;
+            button.HeightRequest = 48;
+        }
     }
 }

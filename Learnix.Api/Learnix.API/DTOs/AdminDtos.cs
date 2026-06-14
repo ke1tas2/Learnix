@@ -29,6 +29,7 @@ namespace Learnix.API.DTOs
         public int? Grade { get; set; }
         public string Role { get; set; } = UserRoles.User;
         public bool IsActive { get; set; }
+        public string? PreparednessLevel { get; set; }
         public int DailyGoalMinutes { get; set; }
         public int CurrentStreakDays { get; set; }
         public int BestStreakDays { get; set; }
@@ -49,6 +50,23 @@ namespace Learnix.API.DTOs
     public class UpdateUserActiveDto
     {
         public bool IsActive { get; set; } = true;
+    }
+
+    public class UpdateAdminUserProfileDto
+    {
+        [Required]
+        [MaxLength(100)]
+        public string Name { get; set; } = string.Empty;
+
+        [MaxLength(10)]
+        public string? Class { get; set; }
+
+        public int? Grade { get; set; }
+
+        [MaxLength(32)]
+        public string? PreparednessLevel { get; set; }
+
+        public int DailyGoalMinutes { get; set; } = 10;
     }
 
     public class AdminSubjectDto

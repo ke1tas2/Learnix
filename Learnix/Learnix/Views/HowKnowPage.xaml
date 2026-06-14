@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.Views.HowKnowPage"
              Title="Уровень"
-             BackgroundColor="#D6F0FA">
+             BackgroundColor="#F7F7F7">
 
     <Grid RowDefinitions="*,Auto" Padding="24">
         <VerticalStackLayout Grid.Row="0"
@@ -12,20 +12,20 @@
                              HorizontalOptions="Center">
             <Label Text="Как вы оцениваете свою подготовку?"
                    FontFamily="GameFontRegular"
-                   TextColor="#3AAAE0"
+                   TextColor="#58CC02"
                    FontSize="30"
                    HorizontalTextAlignment="Center"
                    Margin="0,0,0,15"/>
 
-            <Border StrokeThickness="2" Stroke="#3AAAE0" WidthRequest="300" HorizontalOptions="Center" BackgroundColor="White" StrokeShape="RoundRectangle 12" Padding="4">
+            <Border StrokeThickness="2" Stroke="#E5E5E5" WidthRequest="300" HorizontalOptions="Center" BackgroundColor="White" StrokeShape="RoundRectangle 16" Padding="4">
                 <RadioButton x:Name="BeginnerLevel" GroupName="levelGroup" Content="Нужно начать с основ" FontSize="16" TextColor="Black"/>
             </Border>
 
-            <Border StrokeThickness="2" Stroke="#3AAAE0" WidthRequest="300" HorizontalOptions="Center" BackgroundColor="White" StrokeShape="RoundRectangle 12" Padding="4">
+            <Border StrokeThickness="2" Stroke="#58CC02" WidthRequest="300" HorizontalOptions="Center" BackgroundColor="White" StrokeShape="RoundRectangle 16" Padding="4">
                 <RadioButton x:Name="StandardLevel" GroupName="levelGroup" Content="Знаю средне" FontSize="16" TextColor="Black" IsChecked="True"/>
             </Border>
 
-            <Border StrokeThickness="2" Stroke="#3AAAE0" WidthRequest="300" HorizontalOptions="Center" BackgroundColor="White" StrokeShape="RoundRectangle 12" Padding="4">
+            <Border StrokeThickness="2" Stroke="#E5E5E5" WidthRequest="300" HorizontalOptions="Center" BackgroundColor="White" StrokeShape="RoundRectangle 16" Padding="4">
                 <RadioButton x:Name="AdvancedLevel" GroupName="levelGroup" Content="Хочу сложные задания" FontSize="16" TextColor="Black"/>
             </Border>
         </VerticalStackLayout>
@@ -35,9 +35,9 @@
                 Text="Продолжить"
                 FontFamily="GameFontRegular"
                 FontSize="18"
-                BackgroundColor="#AFC9F8"
-                TextColor="Black"
-                CornerRadius="10"
+                BackgroundColor="#58CC02"
+                TextColor="White"
+                CornerRadius="14"
                 WidthRequest="250"
                 HeightRequest="45"
                 HorizontalOptions="Center"

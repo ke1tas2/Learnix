@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.MainPage"
-             BackgroundColor="#D6F0FA">
+             BackgroundColor="#F7F7F7">
 
     <Grid RowDefinitions="*,Auto">
 
@@ -20,7 +20,7 @@
             <Label Text="Добро пожаловать!"
                    FontFamily="GameFontRegular"
                    FontSize="35"
-                   TextColor="#3AAAE0"
+                   TextColor="#58CC02"
                    HorizontalOptions="Center"
                    HorizontalTextAlignment="Center" />
 
@@ -45,9 +45,9 @@
                     
                     Clicked="RegistrBtn_Clicked"
                     Text="НАЧИНАЕМ"
-                    BackgroundColor="#AFC9F8"
-                    TextColor="Black"
-                    CornerRadius="10"
+                    BackgroundColor="#58CC02"
+                    TextColor="White"
+                    CornerRadius="14"
                     WidthRequest="250"
                     HeightRequest="45" />
 
@@ -56,9 +56,11 @@
                     FontSize="20"
                     Text="У МЕНЯ УЖЕ ЕСТЬ АККАУНТ"
                     Clicked="LoginBtn_Clicked"
-                    BackgroundColor="#AFC9F8"
+                    BackgroundColor="White"
                     TextColor="Black"
-                    CornerRadius="10"
+                    BorderColor="#E5E5E5"
+                    BorderWidth="2"
+                    CornerRadius="14"
                     WidthRequest="250"
                     HeightRequest="45" />
         </VerticalStackLayout>

@@ -81,6 +81,7 @@ namespace Learnix.API.Controllers
                     Grade = u.Grade,
                     Role = u.Role,
                     IsActive = u.IsActive,
+                    PreparednessLevel = u.PreparednessLevel,
                     DailyGoalMinutes = u.DailyGoalMinutes,
                     CurrentStreakDays = u.CurrentStreakDays,
                     BestStreakDays = u.BestStreakDays,
@@ -162,6 +163,75 @@ namespace Learnix.API.Controllers
             }
 
             user.IsActive = dto.IsActive;
+            await _context.SaveChangesAsync();
+            return Ok(await ToAdminUserDtoAsync(user.Id));
+        }
+
+        [HttpPut("users/{id:int}/profile")]
+        public async Task<ActionResult<AdminUserDto>> UpdateUserProfile(int id, [FromBody] UpdateAdminUserProfileDto dto)
+        {
+            var adminCheck = await EnsureAdminAsync();
+            if (adminCheck != null)
+            {
+                return adminCheck;
+            }
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
+            if (user == null)
+            {
+                return NotFound(new { error = "User not found" });
+            }
+
+            if (dto.Grade.HasValue && dto.Grade is < 7 or > 11)
+            {
+                return BadRequest(new { error = "Grade must be from 7 to 11" });
+            }
+
+            if (dto.DailyGoalMinutes is < 5 or > 120)
+            {
+                return BadRequest(new { error = "Daily goal must be from 5 to 120 minutes" });
+            }
+
+            user.Name = dto.Name.Trim();
+            user.Class = TrimToNull(dto.Class);
+            user.Grade = dto.Grade;
+            user.PreparednessLevel = TrimToNull(dto.PreparednessLevel)?.ToLowerInvariant();
+            user.DailyGoalMinutes = dto.DailyGoalMinutes;
+
+            await _context.SaveChangesAsync();
+            return Ok(await ToAdminUserDtoAsync(user.Id));
+        }
+
+        [HttpPost("users/{id:int}/reset-progress")]
+        public async Task<ActionResult<AdminUserDto>> ResetUserProgress(int id)
+        {
+            var adminCheck = await EnsureAdminAsync();
+            if (adminCheck != null)
+            {
+                return adminCheck;
+            }
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
+            if (user == null)
+            {
+                return NotFound(new { error = "User not found" });
+            }
+
+            var attempts = await _context.LessonAttempts
+                .Where(a => a.UserId == id)
+                .ToListAsync();
+            var progress = await _context.UserLevelProgresses
+                .Where(p => p.UserId == id)
+                .ToListAsync();
+
+            _context.LessonAttempts.RemoveRange(attempts);
+            _context.UserLevelProgresses.RemoveRange(progress);
+
+            user.TotalXp = 0;
+            user.CurrentStreakDays = 0;
+            user.BestStreakDays = 0;
+            user.LastActivityDate = null;
+
             await _context.SaveChangesAsync();
             return Ok(await ToAdminUserDtoAsync(user.Id));
         }
@@ -367,6 +437,7 @@ namespace Learnix.API.Controllers
                     Grade = u.Grade,
                     Role = u.Role,
                     IsActive = u.IsActive,
+                    PreparednessLevel = u.PreparednessLevel,
                     DailyGoalMinutes = u.DailyGoalMinutes,
                     CurrentStreakDays = u.CurrentStreakDays,
                     BestStreakDays = u.BestStreakDays,

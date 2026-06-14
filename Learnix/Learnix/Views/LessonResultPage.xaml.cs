@@ -45,9 +45,9 @@ public partial class LessonResultPage : ContentPage
     {
         return new Border
         {
-            Stroke = Color.FromArgb("#3AAAE0"),
+            Stroke = Color.FromArgb("#E5E5E5"),
             StrokeThickness = 2,
-            StrokeShape = new RoundRectangle { CornerRadius = 12 },
+            StrokeShape = new RoundRectangle { CornerRadius = 16 },
             BackgroundColor = Colors.White,
             Padding = 14,
             Content = new Grid

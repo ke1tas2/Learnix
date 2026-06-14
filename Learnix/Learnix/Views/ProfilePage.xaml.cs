@@ -32,7 +32,10 @@ public partial class ProfilePage : ContentPage
             AdminBtn.IsVisible = profile.User.Role == "Admin";
 
             ProfileStack.Children.Clear();
+            ProfileStack.Children.Add(CreateRankCard(profile));
             ProfileStack.Children.Add(CreateStatsCard(profile));
+            ProfileStack.Children.Add(CreateSectionTitle("Достижения"));
+            ProfileStack.Children.Add(CreateAchievementsCard(profile.Achievements));
             ProfileStack.Children.Add(CreateSectionTitle("Предметы"));
             ProfileStack.Children.Add(CreateSubjectsCard(profile.SelectedSubjects));
             ProfileStack.Children.Add(CreateSectionTitle("Последние попытки"));
@@ -69,6 +72,75 @@ public partial class ProfilePage : ContentPage
         grid.Add(CreateMetric("Ошибки", profile.TotalMistakes.ToString()), 1, 1);
 
         return CreateCard(grid);
+    }
+
+    private static View CreateRankCard(ProfileStatsDto profile)
+    {
+        var nextText = profile.XpToNextRank == 0
+            ? "Максимальный ранг открыт"
+            : $"До следующего ранга: {profile.XpToNextRank} XP";
+
+        return CreateCard(new VerticalStackLayout
+        {
+            Spacing = 8,
+            Children =
+            {
+                new Label
+                {
+                    Text = $"Ранг {profile.RankLevel}: {profile.RankTitle}",
+                    FontFamily = "GameFontRegular",
+                    FontSize = 24,
+                    TextColor = Color.FromArgb("#58CC02")
+                },
+                new Label { Text = nextText, FontSize = 14, TextColor = Colors.DimGray },
+                new ProgressBar
+                {
+                    Progress = profile.XpToNextRank == 0
+                        ? 1
+                        : Math.Clamp((double)profile.RankProgressXp / Math.Max(1, profile.RankProgressXp + profile.XpToNextRank), 0, 1),
+                    ProgressColor = Color.FromArgb("#58CC02"),
+                    BackgroundColor = Color.FromArgb("#E5E5E5")
+                }
+            }
+        });
+    }
+
+    private static View CreateAchievementsCard(List<AchievementDto> achievements)
+    {
+        if (achievements.Count == 0)
+        {
+            return CreateCard(CreateMessage("Достижения появятся после прохождения тем."));
+        }
+
+        var stack = new VerticalStackLayout { Spacing = 10 };
+        foreach (var achievement in achievements)
+        {
+            stack.Children.Add(new Border
+            {
+                Stroke = Color.FromArgb(achievement.ColorHex),
+                StrokeThickness = 2,
+                StrokeShape = new RoundRectangle { CornerRadius = 14 },
+                BackgroundColor = Color.FromArgb("#F7F7F7"),
+                Padding = 10,
+                Content = new VerticalStackLayout
+                {
+                    Spacing = 3,
+                    Children =
+                    {
+                        new Label
+                        {
+                            Text = achievement.Title,
+                            FontFamily = "GameFontRegular",
+                            FontSize = 18,
+                            TextColor = Color.FromArgb(achievement.ColorHex)
+                        },
+                        new Label { Text = achievement.Description, FontSize = 13, TextColor = Colors.DimGray }
+                    }
+                }
+            });
+        }
+
+        return CreateCard(stack);
     }
 
     private static View CreateSubjectsCard(List<SubjectDto> subjects)
@@ -156,9 +228,9 @@ public partial class ProfilePage : ContentPage
     {
         return new Border
         {
-            Stroke = Color.FromArgb("#3AAAE0"),
+            Stroke = Color.FromArgb("#E5E5E5"),
             StrokeThickness = 2,
-            StrokeShape = new RoundRectangle { CornerRadius = 12 },
+            StrokeShape = new RoundRectangle { CornerRadius = 16 },
             BackgroundColor = Colors.White,
             Padding = 14,
             Content = content

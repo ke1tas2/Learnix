@@ -99,9 +99,9 @@ public partial class AdminPage : ContentPage
             Text = user.Role == "Admin" ? "Снять админа" : "Сделать админом",
             FontFamily = "GameFontRegular",
             FontSize = 14,
-            BackgroundColor = Color.FromArgb("#AFC9F8"),
-            TextColor = Colors.Black,
-            CornerRadius = 8,
+            BackgroundColor = Color.FromArgb("#58CC02"),
+            TextColor = Colors.White,
+            CornerRadius = 12,
             HeightRequest = 36
         };
         roleButton.Clicked += async (_, _) => await ToggleRoleAsync(user);
@@ -112,13 +112,39 @@ public partial class AdminPage : ContentPage
             FontFamily = "GameFontRegular",
             FontSize = 14,
             BackgroundColor = Colors.White,
-            BorderColor = Color.FromArgb("#3AAAE0"),
+            BorderColor = Color.FromArgb("#E5E5E5"),
             BorderWidth = 1,
             TextColor = Colors.Black,
-            CornerRadius = 8,
+            CornerRadius = 12,
             HeightRequest = 36
         };
         activeButton.Clicked += async (_, _) => await ToggleActiveAsync(user);
+
+        var editButton = new Button
+        {
+            Text = "Изменить класс",
+            FontFamily = "GameFontRegular",
+            FontSize = 14,
+            BackgroundColor = Color.FromArgb("#1CB0F6"),
+            TextColor = Colors.White,
+            CornerRadius = 12,
+            HeightRequest = 36
+        };
+        editButton.Clicked += async (_, _) => await EditProfileAsync(user);
+
+        var resetButton = new Button
+        {
+            Text = "Сброс прогресса",
+            FontFamily = "GameFontRegular",
+            FontSize = 14,
+            BackgroundColor = Colors.White,
+            BorderColor = Color.FromArgb("#FF4B4B"),
+            BorderWidth = 1,
+            TextColor = Color.FromArgb("#FF4B4B"),
+            CornerRadius = 12,
+            HeightRequest = 36
+        };
+        resetButton.Clicked += async (_, _) => await ResetProgressAsync(user);
 
         var classText = string.IsNullOrWhiteSpace(user.Class)
             ? "класс не указан"
@@ -149,12 +175,12 @@ public partial class AdminPage : ContentPage
                     FontSize = 12,
                     TextColor = Colors.DimGray
                 },
-                CreateUserActionsGrid(roleButton, activeButton)
+                CreateUserActionsGrid(roleButton, activeButton, editButton, resetButton)
             }
         };
     }
 
-    private static Grid CreateUserActionsGrid(Button roleButton, Button activeButton)
+    private static Grid CreateUserActionsGrid(Button roleButton, Button activeButton, Button editButton, Button resetButton)
     {
         var grid = new Grid
         {
@@ -163,10 +189,18 @@ public partial class AdminPage : ContentPage
                 new ColumnDefinition { Width = GridLength.Star },
                 new ColumnDefinition { Width = GridLength.Star }
             },
+            RowDefinitions =
+            {
+                new RowDefinition { Height = GridLength.Auto },
+                new RowDefinition { Height = GridLength.Auto }
+            },
+            RowSpacing = 8,
             ColumnSpacing = 8
         };
         grid.Add(roleButton, 0, 0);
         grid.Add(activeButton, 1, 0);
+        grid.Add(editButton, 0, 1);
+        grid.Add(resetButton, 1, 1);
         return grid;
     }
 
@@ -235,6 +269,69 @@ public partial class AdminPage : ContentPage
         }
     }
 
+    private async Task EditProfileAsync(AdminUserDto user)
+    {
+        var value = await DisplayPromptAsync(
+            "Класс пользователя",
+            $"{user.Name}: укажите класс от 7 до 11",
+            "Сохранить",
+            "Отмена",
+            initialValue: user.Grade?.ToString() ?? string.Empty,
+            keyboard: Keyboard.Numeric);
+
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return;
+        }
+
+        if (!int.TryParse(value.Trim(), out var grade) || grade is < 7 or > 11)
+        {
+            await DisplayAlert("Ошибка", "Класс должен быть числом от 7 до 11", "ОК");
+            return;
+        }
+
+        try
+        {
+            await _apiClient.UpdateAdminUserProfileAsync(user.Id, new UpdateAdminUserProfileRequest
+            {
+                Name = user.Name,
+                Class = $"{grade} класс",
+                Grade = grade,
+                PreparednessLevel = user.PreparednessLevel,
+                DailyGoalMinutes = user.DailyGoalMinutes
+            });
+            await LoadAdminDataAsync();
+        }
+        catch (LearnixApiException ex)
+        {
+            await DisplayAlert("Ошибка", ex.Message, "ОК");
+        }
+    }
+
+    private async Task ResetProgressAsync(AdminUserDto user)
+    {
+        var confirmed = await DisplayAlert(
+            "Сброс прогресса",
+            $"{user.Name}: удалить попытки, XP, серию и достижения?",
+            "Да",
+            "Отмена");
+
+        if (!confirmed)
+        {
+            return;
+        }
+
+        try
+        {
+            await _apiClient.ResetAdminUserProgressAsync(user.Id);
+            await LoadAdminDataAsync();
+        }
+        catch (LearnixApiException ex)
+        {
+            await DisplayAlert("Ошибка", ex.Message, "ОК");
+        }
+    }
+
     private static View CreateMetric(string title, string value)
     {
         return new VerticalStackLayout
@@ -263,9 +360,9 @@ public partial class AdminPage : ContentPage
     {
         return new Border
         {
-            Stroke = Color.FromArgb("#3AAAE0"),
+            Stroke = Color.FromArgb("#E5E5E5"),
             StrokeThickness = 2,
-            StrokeShape = new RoundRectangle { CornerRadius = 12 },
+            StrokeShape = new RoundRectangle { CornerRadius = 16 },
             BackgroundColor = Colors.White,
             Padding = 14,
             Content = content

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.Views.SubjectQuestionPage"
              Title="Learnix"
-             BackgroundColor="#D6F0FA">
+             BackgroundColor="#F7F7F7">
     <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="20">
         <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,16,0,10">
             <VerticalStackLayout Spacing="2">
@@ -11,7 +11,7 @@
                        Text="Learnix"
                        FontFamily="GameFontRegular"
                        FontSize="30"
-                       TextColor="#3AAAE0"/>
+                       TextColor="#58CC02"/>
                 <Label x:Name="GoalLabel"
                        Text="Сегодняшняя цель"
                        FontSize="14"
@@ -22,20 +22,22 @@
                     Text="Профиль"
                     FontFamily="GameFontRegular"
                     FontSize="16"
-                    BackgroundColor="#AFC9F8"
+                    BackgroundColor="White"
+                    BorderColor="#E5E5E5"
+                    BorderWidth="2"
                     TextColor="Black"
-                    CornerRadius="10"
+                    CornerRadius="16"
                     Clicked="OnProfileClicked"/>
         </Grid>
 
         <Border Grid.Row="1"
-                Stroke="#3AAAE0"
+                Stroke="#E5E5E5"
                 StrokeThickness="2"
-                StrokeShape="RoundRectangle 12"
+                StrokeShape="RoundRectangle 16"
                 BackgroundColor="White"
-                Padding="12"
+                Padding="14"
                 Margin="0,0,0,14">
-            <Grid ColumnDefinitions="*,*,*">
+            <Grid ColumnDefinitions="*,*,*,*">
                 <VerticalStackLayout>
                     <Label Text="XP" FontSize="12" TextColor="DimGray"/>
                     <Label x:Name="XpLabel" FontSize="20" FontFamily="GameFontRegular" TextColor="Black"/>
@@ -47,6 +49,10 @@
                 <VerticalStackLayout Grid.Column="2">
                     <Label Text="Точность" FontSize="12" TextColor="DimGray"/>
                     <Label x:Name="AccuracyLabel" FontSize="20" FontFamily="GameFontRegular" TextColor="Black"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="3">
+                    <Label Text="Ранг" FontSize="12" TextColor="DimGray"/>
+                    <Label x:Name="RankLabel" FontSize="20" FontFamily="GameFontRegular" TextColor="Black"/>
                 </VerticalStackLayout>
             </Grid>
         </Border>
@@ -60,7 +66,7 @@
                 FontFamily="GameFontRegular"
                 FontSize="18"
                 BackgroundColor="Transparent"
-                TextColor="#3AAAE0"
+                TextColor="#1CB0F6"
                 Clicked="OnChangeSubjectsClicked"/>
     </Grid>
 </ContentPage>

@@ -5,7 +5,7 @@
              Title="Добро пожаловать">
 
     <Grid RowDefinitions="*,Auto"
-          BackgroundColor="#D6F0FA"
+          BackgroundColor="#F7F7F7"
           Padding="24">
 
         <VerticalStackLayout Grid.Row="0"
@@ -16,7 +16,7 @@
             <Label x:Name="WelcomeLabel"
                    Text="Отлично! Вы вошли в Learnix"
                    FontSize="26"
-                   TextColor="#3AAAE0"
+                   TextColor="#58CC02"
                    FontFamily="GameFontRegular"
                    HorizontalTextAlignment="Center"
                    HorizontalOptions="Center"
@@ -36,11 +36,11 @@
             <Button x:Name="NextBtn"
                     Clicked="NextBtnClicked"
                     Text="Продолжить"
-                    BackgroundColor="#AFC9F8"
+                    BackgroundColor="#58CC02"
                     FontFamily="GameFontRegular"
                     FontSize="18"
-                    TextColor="Black"
-                    CornerRadius="10"
+                    TextColor="White"
+                    CornerRadius="14"
                     WidthRequest="250"
                     HeightRequest="45"
                     HorizontalOptions="Center"

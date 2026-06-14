@@ -4,7 +4,7 @@
              x:Class="Learnix.RegistrationPage"
              Title="Регистрация">
 
-    <ScrollView BackgroundColor="#D2EDF7">
+    <ScrollView BackgroundColor="#F7F7F7">
         <Grid Padding="30"
               RowDefinitions="Auto,Auto,*,Auto"
               RowSpacing="20"
@@ -23,7 +23,7 @@
                    FontSize="40"
                    VerticalOptions="End"
                    HorizontalOptions="Center"
-                   TextColor="#3AAAE0"
+                   TextColor="#58CC02"
                    Margin="0,40,0,0"/>
 
             <VerticalStackLayout Grid.Row="2"
@@ -70,31 +70,19 @@
                        HorizontalOptions="Start"
                        Margin="4,-8,0,0"/>
 
-                <Border Stroke="#3AAAE0"
-                        StrokeThickness="1"
-                        StrokeShape="RoundRectangle 8"
-                        BackgroundColor="Transparent"
-                        WidthRequest="280"
-                        HeightRequest="60"
-                        Padding="12,8">
-                    <Picker x:Name="ClassPicker"
-                            FontFamily="GameFontRegular"
-                            Title="Выберите класс"
-                            TitleColor="Black"
-                            BackgroundColor="Transparent"
-                            TextColor="Black"
-                            FontSize="18"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Fill">
-                        <Picker.Items>
-                            <x:String>7 класс</x:String>
-                            <x:String>8 класс</x:String>
-                            <x:String>9 класс</x:String>
-                            <x:String>10 класс</x:String>
-                            <x:String>11 класс</x:String>
-                        </Picker.Items>
-                    </Picker>
-                </Border>
+                <VerticalStackLayout Spacing="8" WidthRequest="280">
+                    <Label Text="Выберите класс"
+                           FontFamily="GameFontRegular"
+                           FontSize="18"
+                           TextColor="Black"/>
+                    <Grid ColumnDefinitions="*,*,*,*,*" ColumnSpacing="6">
+                        <Button x:Name="Grade7Button" Text="7" CommandParameter="7" Clicked="OnGradeClicked"/>
+                        <Button x:Name="Grade8Button" Grid.Column="1" Text="8" CommandParameter="8" Clicked="OnGradeClicked"/>
+                        <Button x:Name="Grade9Button" Grid.Column="2" Text="9" CommandParameter="9" Clicked="OnGradeClicked"/>
+                        <Button x:Name="Grade10Button" Grid.Column="3" Text="10" CommandParameter="10" Clicked="OnGradeClicked"/>
+                        <Button x:Name="Grade11Button" Grid.Column="4" Text="11" CommandParameter="11" Clicked="OnGradeClicked"/>
+                    </Grid>
+                </VerticalStackLayout>
             </VerticalStackLayout>
 
             <VerticalStackLayout Grid.Row="3"
@@ -106,9 +94,9 @@
                         FontFamily="GameFontRegular"
                         x:Name="RegisterBtn"
                         FontSize="18"
-                        BackgroundColor="#AFC9F8"
-                        TextColor="Black"
-                        CornerRadius="10"
+                        BackgroundColor="#58CC02"
+                        TextColor="White"
+                        CornerRadius="14"
                         WidthRequest="280"
                         HeightRequest="45"
                         Clicked="OnRegisterClicked"/>
@@ -117,7 +105,7 @@
                         FontFamily="GameFontRegular"
                         FontSize="20"
                         BackgroundColor="Transparent"
-                        TextColor="#3AAAE0"
+                        TextColor="#1CB0F6"
                         Clicked="OnBackClicked"/>
             </VerticalStackLayout>
         </Grid>

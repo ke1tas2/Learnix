@@ -80,8 +80,8 @@ public partial class WhatSubject : ContentPage
                 var border = new Border
                 {
                     StrokeThickness = 2,
-                    Stroke = Color.FromArgb("#3AAAE0"),
-                    StrokeShape = new RoundRectangle { CornerRadius = 12 },
+                    Stroke = Color.FromArgb("#E5E5E5"),
+                    StrokeShape = new RoundRectangle { CornerRadius = 16 },
                     Content = row
                 };
 

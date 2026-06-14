@@ -45,18 +45,28 @@ namespace Learnix.API.Controllers
                 .OrderBy(s => s.SortOrder)
                 .ToListAsync();
 
-            var completedLevelsCount = await _context.UserLevelProgresses
+            var completedProgresses = await _context.UserLevelProgresses
                 .AsNoTracking()
-                .CountAsync(p => p.UserId == user.Id && p.Status == "completed");
+                .Include(p => p.LearningLevel)
+                .ThenInclude(l => l.Subject)
+                .Where(p => p.UserId == user.Id && p.Status == "completed")
+                .OrderByDescending(p => p.CompletedAt)
+                .ToListAsync();
+
+            var rank = GetRank(user.TotalXp);
 
             return Ok(new ProfileStatsDto
             {
                 User = UserResponseDto.FromUser(user),
                 SelectedSubjectsCount = selectedSubjects.Count,
-                CompletedLevelsCount = completedLevelsCount,
+                CompletedLevelsCount = completedProgresses.Count,
                 AttemptsCount = attempts.Count,
                 TotalMistakes = attempts.Sum(a => a.Mistakes),
                 AverageScorePercent = attempts.Count == 0 ? 0 : (int)Math.Round(attempts.Average(a => a.ScorePercent)),
+                RankTitle = rank.Title,
+                RankLevel = rank.Level,
+                RankProgressXp = rank.ProgressXp,
+                XpToNextRank = rank.XpToNext,
                 SelectedSubjects = selectedSubjects.Select(SubjectDto.FromSubject).ToList(),
                 RecentAttempts = attempts.Take(10).Select(a => new RecentAttemptDto
                 {
@@ -67,6 +77,14 @@ namespace Learnix.API.Controllers
                     Mistakes = a.Mistakes,
                     EarnedXp = a.EarnedXp,
                     CompletedAt = a.CompletedAt
+                }).ToList(),
+                Achievements = completedProgresses.Take(20).Select(p => new AchievementDto
+                {
+                    Title = $"Тема пройдена: {p.LearningLevel.Title}",
+                    Description = $"{p.LearningLevel.Grade} класс · лучший результат {p.BestScorePercent}% · +{p.EarnedXp} XP",
+                    SubjectName = p.LearningLevel.Subject.Name,
+                    ColorHex = p.LearningLevel.Subject.ColorHex,
+                    EarnedAt = p.CompletedAt
                 }).ToList()
             });
         }
@@ -117,6 +135,25 @@ namespace Learnix.API.Controllers
             return userId.HasValue
                 ? await _context.Users.FirstOrDefaultAsync(u => u.Id == userId.Value && u.IsActive)
                 : null;
+        }
+
+        private static (int Level, string Title, int ProgressXp, int XpToNext) GetRank(int totalXp)
+        {
+            var ranks = new[]
+            {
+                (Level: 1, Title: "Новичок", MinXp: 0),
+                (Level: 2, Title: "Ученик", MinXp: 100),
+                (Level: 3, Title: "Знаток", MinXp: 300),
+                (Level: 4, Title: "Эксперт", MinXp: 700),
+                (Level: 5, Title: "Мастер", MinXp: 1200),
+                (Level: 6, Title: "Легенда Learnix", MinXp: 2000)
+            };
+
+            var current = ranks.Last(rank => totalXp >= rank.MinXp);
+            var next = ranks.FirstOrDefault(rank => rank.MinXp > totalXp);
+            return next == default
+                ? (current.Level, current.Title, totalXp - current.MinXp, 0)
+                : (current.Level, current.Title, totalXp - current.MinXp, next.MinXp - totalXp);
         }
     }
 }

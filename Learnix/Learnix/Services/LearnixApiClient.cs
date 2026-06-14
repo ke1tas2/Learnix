@@ -112,6 +112,25 @@ namespace Learnix.Services
             return await ReadResponseAsync<AdminUserDto>(response);
         }
 
+        public async Task<AdminUserDto> UpdateAdminUserProfileAsync(int userId, UpdateAdminUserProfileRequest request)
+        {
+            ApplyAuthorizationHeader();
+            var response = await SendAsync(() => _httpClient.PutAsJsonAsync(
+                $"api/admin/users/{userId}/profile",
+                request,
+                JsonOptions));
+            return await ReadResponseAsync<AdminUserDto>(response);
+        }
+
+        public async Task<AdminUserDto> ResetAdminUserProgressAsync(int userId)
+        {
+            ApplyAuthorizationHeader();
+            var response = await SendAsync(() => _httpClient.PostAsync(
+                $"api/admin/users/{userId}/reset-progress",
+                null));
+            return await ReadResponseAsync<AdminUserDto>(response);
+        }
+
         public async Task<List<AdminSubjectDto>> GetAdminSubjectsAsync()
         {
             ApplyAuthorizationHeader();
@@ -309,8 +328,13 @@ namespace Learnix.Services
         public int AttemptsCount { get; set; }
         public int TotalMistakes { get; set; }
         public int AverageScorePercent { get; set; }
+        public string RankTitle { get; set; } = string.Empty;
+        public int RankLevel { get; set; }
+        public int RankProgressXp { get; set; }
+        public int XpToNextRank { get; set; }
         public List<SubjectDto> SelectedSubjects { get; set; } = new();
         public List<RecentAttemptDto> RecentAttempts { get; set; } = new();
+        public List<AchievementDto> Achievements { get; set; } = new();
     }
 
     public class RecentAttemptDto
@@ -322,6 +346,15 @@ namespace Learnix.Services
         public int Mistakes { get; set; }
         public int EarnedXp { get; set; }
         public DateTime? CompletedAt { get; set; }
+    }
+
+    public class AchievementDto
+    {
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string SubjectName { get; set; } = string.Empty;
+        public string ColorHex { get; set; } = "#58CC02";
+        public DateTime? EarnedAt { get; set; }
     }
 
     public class LearningLevelDto
@@ -413,6 +446,7 @@ namespace Learnix.Services
         public int? Grade { get; set; }
         public string Role { get; set; } = "User";
         public bool IsActive { get; set; }
+        public string? PreparednessLevel { get; set; }
         public int DailyGoalMinutes { get; set; }
         public int CurrentStreakDays { get; set; }
         public int BestStreakDays { get; set; }
@@ -431,6 +465,15 @@ namespace Learnix.Services
     public class UpdateUserActiveRequest
     {
         public bool IsActive { get; set; } = true;
+    }
+
+    public class UpdateAdminUserProfileRequest
+    {
+        public string Name { get; set; } = string.Empty;
+        public string? Class { get; set; }
+        public int? Grade { get; set; }
+        public string? PreparednessLevel { get; set; }
+        public int DailyGoalMinutes { get; set; } = 10;
     }
 
     public class AdminSubjectDto

@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.Views.ProfilePage"
              Title="Профиль"
-             BackgroundColor="#D6F0FA">
+             BackgroundColor="#F7F7F7">
     <Grid RowDefinitions="Auto,*,Auto" Padding="20">
         <VerticalStackLayout Grid.Row="0" Spacing="4" Margin="0,18,0,14">
             <Label x:Name="NameLabel"
                    Text="Профиль"
                    FontFamily="GameFontRegular"
                    FontSize="32"
-                   TextColor="#3AAAE0"/>
+                   TextColor="#58CC02"/>
             <Label x:Name="ClassLabel"
                    Text="Статистика обучения"
                    FontSize="15"
@@ -27,7 +27,7 @@
                     FontFamily="GameFontRegular"
                     FontSize="18"
                     BackgroundColor="White"
-                    BorderColor="#3AAAE0"
+                    BorderColor="#E5E5E5"
                     BorderWidth="2"
                     TextColor="Black"
                     CornerRadius="10"
@@ -39,9 +39,9 @@
                 <Button Text="К уровням"
                         FontFamily="GameFontRegular"
                         FontSize="18"
-                        BackgroundColor="#AFC9F8"
-                        TextColor="Black"
-                        CornerRadius="10"
+                        BackgroundColor="#58CC02"
+                        TextColor="White"
+                        CornerRadius="14"
                         HeightRequest="45"
                         Clicked="OnBackClicked"/>
 
@@ -50,7 +50,7 @@
                         FontFamily="GameFontRegular"
                         FontSize="18"
                         BackgroundColor="White"
-                        BorderColor="#3AAAE0"
+                        BorderColor="#E5E5E5"
                         BorderWidth="2"
                         TextColor="Black"
                         CornerRadius="10"

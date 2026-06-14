@@ -3,33 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.Views.LessonPage"
              Title="Урок"
-             BackgroundColor="#D6F0FA">
+             BackgroundColor="#F7F7F7">
     <Grid RowDefinitions="Auto,*,Auto" Padding="20">
-        <VerticalStackLayout Grid.Row="0" Spacing="4" Margin="0,16,0,12">
+        <VerticalStackLayout Grid.Row="0" Spacing="10" Margin="0,16,0,12">
             <Label x:Name="LevelTitleLabel"
                    Text="Урок"
                    FontFamily="GameFontRegular"
                    FontSize="28"
-                   TextColor="#3AAAE0"/>
+                   TextColor="#58CC02"/>
             <Label x:Name="LevelSubtitleLabel"
                    Text="Выберите правильные ответы"
                    FontSize="14"
                    TextColor="Black"/>
+            <ProgressBar x:Name="LessonProgressBar"
+                         Progress="0"
+                         ProgressColor="#58CC02"
+                         BackgroundColor="#E5E5E5"
+                         HeightRequest="8"/>
         </VerticalStackLayout>
 
-        <ScrollView Grid.Row="1">
-            <VerticalStackLayout x:Name="ExerciseStack" Spacing="14"/>
-        </ScrollView>
+        <VerticalStackLayout Grid.Row="1"
+                             x:Name="ExerciseStack"
+                             Spacing="16"
+                             VerticalOptions="Center"/>
 
         <Button Grid.Row="2"
                 x:Name="SubmitBtn"
-                Text="Проверить"
+                Text="Продолжить"
                 FontFamily="GameFontRegular"
                 FontSize="18"
-                BackgroundColor="#AFC9F8"
-                TextColor="Black"
-                CornerRadius="10"
-                HeightRequest="45"
+                BackgroundColor="#58CC02"
+                TextColor="White"
+                CornerRadius="14"
+                HeightRequest="52"
                 Margin="0,16,0,0"
                 Clicked="OnSubmitClicked"/>
     </Grid>
