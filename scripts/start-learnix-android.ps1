@@ -67,13 +67,69 @@ function Get-ApiProcesses {
     try {
         return @(Get-CimInstance Win32_Process |
             Where-Object {
-                $_.Name -in @("dotnet.exe", "Learnix.API.exe") -and
+                $_.Name -in @("dotnet.exe", "Learnix.API.exe", "cmd.exe") -and
                 ($_.CommandLine -like "*Learnix.API.dll*" -or $_.CommandLine -like "*Learnix.API.exe*")
             })
     }
     catch {
         return @()
     }
+}
+
+function Get-ApiProcessIds {
+    $ids = [System.Collections.Generic.HashSet[int]]::new()
+
+    foreach ($process in Get-ApiProcesses) {
+        [void]$ids.Add([int]$process.ProcessId)
+    }
+
+    try {
+        $portOwners = @(Get-NetTCPConnection -LocalPort $ApiPort -ErrorAction SilentlyContinue |
+            Select-Object -ExpandProperty OwningProcess -Unique)
+
+        foreach ($processId in $portOwners) {
+            $process = Get-Process -Id $processId -ErrorAction SilentlyContinue
+            if ($process -and $process.ProcessName -in @("dotnet", "Learnix.API", "cmd")) {
+                [void]$ids.Add([int]$processId)
+            }
+        }
+    }
+    catch {
+    }
+
+    return @($ids)
+}
+
+function Wait-ApiPortFree {
+    for ($i = 0; $i -lt 40; $i++) {
+        try {
+            $connections = @(Get-NetTCPConnection -LocalPort $ApiPort -ErrorAction SilentlyContinue)
+            if ($connections.Count -eq 0) {
+                return
+            }
+        }
+        catch {
+            return
+        }
+
+        Start-Sleep -Milliseconds 500
+    }
+
+    throw "Port $ApiPort is still busy. Close the old Learnix.API process and run start-learnix.cmd again."
+}
+
+function Stop-ApiProcesses {
+    $processIds = Get-ApiProcessIds
+    if ($processIds.Count -eq 0) {
+        return
+    }
+
+    Write-Host "Stopping running Learnix.API..."
+    foreach ($processId in $processIds) {
+        Stop-Process -Id $processId -Force -ErrorAction SilentlyContinue
+    }
+
+    Wait-ApiPortFree
 }
 
 function Wait-Api {
@@ -152,25 +208,18 @@ if (-not (Test-Docker)) {
 
 Invoke-Native "docker" @("compose", "-f", $composeFile, "up", "-d", "learnix-postgres")
 
+Stop-ApiProcesses
+
 Write-Host "Building Learnix.API..."
 Invoke-Native "dotnet" @("build", $apiProject, "--no-restore", "--nologo")
 
 $env:ASPNETCORE_ENVIRONMENT = "Development"
 $env:LEARNIX_DB_CONNECTION = "Host=127.0.0.1;Port=55432;Database=learnix_db;Username=postgres;Password=jara130308;SSL Mode=Disable;GSS Encryption Mode=Disable"
 
-if (Test-Api) {
-    Write-Host "Learnix.API is already running on http://localhost:$ApiPort"
-}
-elseif ((Get-ApiProcesses).Count -gt 0) {
-    Write-Host "Learnix.API is already starting. Waiting for it to become ready..."
-    Wait-Api
-}
-else {
-    Write-Host "Starting Learnix.API on http://0.0.0.0:$ApiPort ..."
-    $apiCommand = "dotnet `"$apiDll`" --urls http://0.0.0.0:$ApiPort > `"$apiOut`" 2> `"$apiErr`""
-    Start-DetachedCommand -CommandLine $apiCommand -WorkingDirectory $apiBin
-    Wait-Api
-}
+Write-Host "Starting Learnix.API on http://0.0.0.0:$ApiPort ..."
+$apiCommand = "dotnet `"$apiDll`" --urls http://0.0.0.0:$ApiPort > `"$apiOut`" 2> `"$apiErr`""
+Start-DetachedCommand -CommandLine $apiCommand -WorkingDirectory $apiBin
+Wait-Api
 
 $adb = Resolve-ToolPath "adb" @(
     "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe",
