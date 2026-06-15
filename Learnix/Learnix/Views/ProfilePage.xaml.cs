@@ -90,7 +90,7 @@ public partial class ProfilePage : ContentPage
                     Text = $"Ранг {profile.RankLevel}: {profile.RankTitle}",
                     FontFamily = "GameFontRegular",
                     FontSize = 24,
-                    TextColor = Color.FromArgb("#58CC02")
+                    TextColor = Color.FromArgb("#3AAAE0")
                 },
                 new Label { Text = nextText, FontSize = 14, TextColor = Colors.DimGray },
                 new ProgressBar
@@ -98,7 +98,7 @@ public partial class ProfilePage : ContentPage
                     Progress = profile.XpToNextRank == 0
                         ? 1
                         : Math.Clamp((double)profile.RankProgressXp / Math.Max(1, profile.RankProgressXp + profile.XpToNextRank), 0, 1),
-                    ProgressColor = Color.FromArgb("#58CC02"),
+                    ProgressColor = Color.FromArgb("#3AAAE0"),
                     BackgroundColor = Color.FromArgb("#E5E5E5")
                 }
             }
@@ -120,7 +120,7 @@ public partial class ProfilePage : ContentPage
                 Stroke = Color.FromArgb(achievement.ColorHex),
                 StrokeThickness = 2,
                 StrokeShape = new RoundRectangle { CornerRadius = 14 },
-                BackgroundColor = Color.FromArgb("#F7F7F7"),
+                BackgroundColor = Color.FromArgb("#D6F0FA"),
                 Padding = 10,
                 Content = new VerticalStackLayout
                 {

@@ -124,8 +124,8 @@ public partial class LessonPage : ContentPage
         foreach (var button in _optionButtons)
         {
             var isSelected = button.CommandParameter?.ToString() == selectedAnswer;
-            button.BackgroundColor = isSelected ? Color.FromArgb("#D7FFB8") : Colors.White;
-            button.BorderColor = isSelected ? Color.FromArgb("#58CC02") : Color.FromArgb("#E5E5E5");
+            button.BackgroundColor = isSelected ? Color.FromArgb("#D6F0FA") : Colors.White;
+            button.BorderColor = isSelected ? Color.FromArgb("#3AAAE0") : Color.FromArgb("#E5E5E5");
             button.TextColor = Colors.Black;
         }
     }

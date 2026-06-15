@@ -159,11 +159,11 @@ namespace Learnix.Services
             }
             catch (HttpRequestException)
             {
-                throw new LearnixApiException("API не запущен. Сначала запустите Learnix.API на http://localhost:5199, затем повторите действие.");
+                throw new LearnixApiException("API не отвечает. Запустите start-learnix.cmd в папке проекта: он поднимет PostgreSQL, Learnix.API и установит приложение на эмулятор.");
             }
             catch (TaskCanceledException)
             {
-                throw new LearnixApiException("API не ответил вовремя. Проверьте, что Learnix.API запущен на http://localhost:5199.");
+                throw new LearnixApiException("API не ответил вовремя. Проверьте, что start-learnix.cmd запущен, а Learnix.API слушает http://localhost:5199.");
             }
         }
 
@@ -306,7 +306,7 @@ namespace Learnix.Services
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
         public string Grades { get; set; } = string.Empty;
-        public string ColorHex { get; set; } = "#58CC02";
+        public string ColorHex { get; set; } = "#3AAAE0";
         public string IconKey { get; set; } = "book";
         public int SortOrder { get; set; }
     }
@@ -353,7 +353,7 @@ namespace Learnix.Services
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string SubjectName { get; set; } = string.Empty;
-        public string ColorHex { get; set; } = "#58CC02";
+        public string ColorHex { get; set; } = "#3AAAE0";
         public DateTime? EarnedAt { get; set; }
     }
 

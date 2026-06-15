@@ -173,7 +173,7 @@ public partial class SubjectQuestionPage : ContentPage
                 ? "Откроется после предыдущей темы"
             : $"{level.ExerciseCount} вопроса · {level.XpReward} XP";
 
-        var accent = Color.FromArgb(level.Status == "completed" ? "#58CC02" : isLocked ? "#AFAFAF" : colorHex);
+        var accent = Color.FromArgb(level.Status == "completed" ? "#3AAAE0" : isLocked ? "#AFAFAF" : colorHex);
         var circle = new Border
         {
             WidthRequest = 72,
@@ -181,13 +181,13 @@ public partial class SubjectQuestionPage : ContentPage
             Stroke = accent,
             StrokeThickness = 4,
             StrokeShape = new RoundRectangle { CornerRadius = 36 },
-            BackgroundColor = level.Status == "completed" ? Color.FromArgb("#58CC02") : Colors.White,
+            BackgroundColor = level.Status == "completed" ? Color.FromArgb("#AFC9F8") : Colors.White,
             Content = new Label
             {
                 Text = level.Status == "completed" ? "✓" : (index + 1).ToString(),
                 FontFamily = "GameFontRegular",
                 FontSize = 26,
-                TextColor = level.Status == "completed" ? Colors.White : accent,
+                TextColor = level.Status == "completed" ? Colors.Black : accent,
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center
             }
@@ -216,8 +216,8 @@ public partial class SubjectQuestionPage : ContentPage
             Text = isLocked ? "Закрыто" : level.Status == "completed" ? "Повторить" : "Старт",
             FontFamily = "GameFontRegular",
             FontSize = 16,
-            BackgroundColor = isLocked ? Color.FromArgb("#E5E5E5") : Color.FromArgb("#58CC02"),
-            TextColor = isLocked ? Colors.DimGray : Colors.White,
+            BackgroundColor = isLocked ? Color.FromArgb("#E5E5E5") : Color.FromArgb("#AFC9F8"),
+            TextColor = isLocked ? Colors.DimGray : Colors.Black,
             CornerRadius = 14,
             HeightRequest = 42,
             IsEnabled = !isLocked
@@ -270,8 +270,8 @@ public partial class SubjectQuestionPage : ContentPage
             Text = "Выбрать предметы",
             FontFamily = "GameFontRegular",
             FontSize = 18,
-            BackgroundColor = Color.FromArgb("#58CC02"),
-            TextColor = Colors.White,
+            BackgroundColor = Color.FromArgb("#AFC9F8"),
+            TextColor = Colors.Black,
             CornerRadius = 14
         };
         button.Clicked += async (_, _) => await Shell.Current.GoToAsync(nameof(WhatSubject));

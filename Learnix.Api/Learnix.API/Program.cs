@@ -18,7 +18,7 @@ builder.Services.AddScoped<CurrentUserService>();
 
 var connectionString = Environment.GetEnvironmentVariable("LEARNIX_DB_CONNECTION")
     ?? builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? "Host=localhost;Port=55432;Database=learnix_db;Username=postgres;Password=jara130308";
+    ?? "Host=127.0.0.1;Port=55432;Database=learnix_db;Username=postgres;Password=jara130308;SSL Mode=Disable;GSS Encryption Mode=Disable";
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(
     connectionString,
@@ -58,7 +58,7 @@ using (var scope = app.Services.CreateScope())
     catch (Exception ex)
     {
         Console.Error.WriteLine("Learnix API could not initialize PostgreSQL.");
-        Console.Error.WriteLine(ex.Message);
+        Console.Error.WriteLine(ex);
         Environment.ExitCode = 1;
         return;
     }

@@ -122,7 +122,7 @@ namespace Learnix.API.DTOs
         public string Grades { get; set; } = "7-11";
 
         [MaxLength(16)]
-        public string ColorHex { get; set; } = "#58CC02";
+        public string ColorHex { get; set; } = "#3AAAE0";
 
         [MaxLength(40)]
         public string IconKey { get; set; } = "book";

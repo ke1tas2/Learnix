@@ -85,9 +85,9 @@ public partial class RegistrationPage : ContentPage
         foreach (var button in _gradeButtons)
         {
             var isSelected = button.CommandParameter?.ToString() == grade.ToString();
-            button.BackgroundColor = isSelected ? Color.FromArgb("#58CC02") : Colors.White;
-            button.TextColor = isSelected ? Colors.White : Colors.Black;
-            button.BorderColor = Color.FromArgb(isSelected ? "#58CC02" : "#E5E5E5");
+            button.BackgroundColor = isSelected ? Color.FromArgb("#AFC9F8") : Colors.White;
+            button.TextColor = Colors.Black;
+            button.BorderColor = Color.FromArgb(isSelected ? "#3AAAE0" : "#E5E5E5");
             button.BorderWidth = 2;
             button.CornerRadius = 14;
             button.FontFamily = "GameFontRegular";

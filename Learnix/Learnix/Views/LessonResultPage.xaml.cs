@@ -84,7 +84,7 @@ public partial class LessonResultPage : ContentPage
 
     private static View CreateAnswerCard(LessonAnswerResultDto answer)
     {
-        var color = answer.IsCorrect ? Color.FromArgb("#58CC02") : Color.FromArgb("#FF4B4B");
+        var color = answer.IsCorrect ? Color.FromArgb("#3AAAE0") : Color.FromArgb("#FF4B4B");
         var status = answer.IsCorrect ? "Верно" : "Ошибка";
 
         return new Border

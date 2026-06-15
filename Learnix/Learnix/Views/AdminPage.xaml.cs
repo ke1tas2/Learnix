@@ -99,8 +99,8 @@ public partial class AdminPage : ContentPage
             Text = user.Role == "Admin" ? "Снять админа" : "Сделать админом",
             FontFamily = "GameFontRegular",
             FontSize = 14,
-            BackgroundColor = Color.FromArgb("#58CC02"),
-            TextColor = Colors.White,
+            BackgroundColor = Color.FromArgb("#AFC9F8"),
+            TextColor = Colors.Black,
             CornerRadius = 12,
             HeightRequest = 36
         };
@@ -125,8 +125,8 @@ public partial class AdminPage : ContentPage
             Text = "Изменить класс",
             FontFamily = "GameFontRegular",
             FontSize = 14,
-            BackgroundColor = Color.FromArgb("#1CB0F6"),
-            TextColor = Colors.White,
+            BackgroundColor = Color.FromArgb("#3AAAE0"),
+            TextColor = Colors.Black,
             CornerRadius = 12,
             HeightRequest = 36
         };

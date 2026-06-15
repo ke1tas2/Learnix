@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.Views.AdminPage"
              Title="Админ-панель"
-             BackgroundColor="#F7F7F7">
+             BackgroundColor="#D6F0FA">
     <Grid RowDefinitions="Auto,*,Auto" Padding="20">
         <VerticalStackLayout Grid.Row="0" Spacing="4" Margin="0,18,0,14">
             <Label Text="Админ-панель"
                    FontFamily="GameFontRegular"
                    FontSize="32"
-                   TextColor="#58CC02"/>
+                   TextColor="#3AAAE0"/>
             <Label x:Name="SubtitleLabel"
                    Text="Управление Learnix"
                    FontSize="15"
@@ -24,8 +24,8 @@
             <Button Text="К обучению"
                     FontFamily="GameFontRegular"
                     FontSize="18"
-                    BackgroundColor="#58CC02"
-                    TextColor="White"
+                    BackgroundColor="#AFC9F8"
+                    TextColor="Black"
                     CornerRadius="14"
                     HeightRequest="45"
                     Clicked="OnLearningClicked"/>

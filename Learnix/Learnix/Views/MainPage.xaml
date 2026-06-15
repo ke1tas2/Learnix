@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.MainPage"
-             BackgroundColor="#F7F7F7">
+             BackgroundColor="#D6F0FA">
 
     <Grid RowDefinitions="*,Auto">
 
@@ -20,7 +20,7 @@
             <Label Text="Добро пожаловать!"
                    FontFamily="GameFontRegular"
                    FontSize="35"
-                   TextColor="#58CC02"
+                   TextColor="#3AAAE0"
                    HorizontalOptions="Center"
                    HorizontalTextAlignment="Center" />
 
@@ -45,8 +45,8 @@
                     
                     Clicked="RegistrBtn_Clicked"
                     Text="НАЧИНАЕМ"
-                    BackgroundColor="#58CC02"
-                    TextColor="White"
+                    BackgroundColor="#AFC9F8"
+                    TextColor="Black"
                     CornerRadius="14"
                     WidthRequest="250"
                     HeightRequest="45" />

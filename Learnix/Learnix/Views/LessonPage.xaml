@@ -3,21 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.Views.LessonPage"
              Title="Урок"
-             BackgroundColor="#F7F7F7">
+             BackgroundColor="#D6F0FA">
     <Grid RowDefinitions="Auto,*,Auto" Padding="20">
         <VerticalStackLayout Grid.Row="0" Spacing="10" Margin="0,16,0,12">
             <Label x:Name="LevelTitleLabel"
                    Text="Урок"
                    FontFamily="GameFontRegular"
                    FontSize="28"
-                   TextColor="#58CC02"/>
+                   TextColor="#3AAAE0"/>
             <Label x:Name="LevelSubtitleLabel"
                    Text="Выберите правильные ответы"
                    FontSize="14"
                    TextColor="Black"/>
             <ProgressBar x:Name="LessonProgressBar"
                          Progress="0"
-                         ProgressColor="#58CC02"
+                         ProgressColor="#3AAAE0"
                          BackgroundColor="#E5E5E5"
                          HeightRequest="8"/>
         </VerticalStackLayout>
@@ -32,8 +32,8 @@
                 Text="Продолжить"
                 FontFamily="GameFontRegular"
                 FontSize="18"
-                BackgroundColor="#58CC02"
-                TextColor="White"
+                BackgroundColor="#AFC9F8"
+                TextColor="Black"
                 CornerRadius="14"
                 HeightRequest="52"
                 Margin="0,16,0,0"

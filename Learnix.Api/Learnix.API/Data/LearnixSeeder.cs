@@ -19,6 +19,7 @@ namespace Learnix.API.Data
                 await context.SaveChangesAsync();
             }
 
+            await SyncSubjectPaletteAsync(context);
             await SeedLevelsAsync(context);
             await SeedAdminAsync(context);
         }
@@ -27,15 +28,52 @@ namespace Learnix.API.Data
         {
             return new[]
             {
-                Subject("algebra", "Алгебра", "Уравнения, функции, степени, преобразования и подготовка к экзаменам.", "#58CC02", "calculator", 1),
-                Subject("geometry", "Геометрия", "Фигуры, доказательства, площади, окружности и стереометрия.", "#1CB0F6", "triangle", 2),
-                Subject("physics", "Физика", "Явления природы, законы движения, энергия, электричество и оптика.", "#CE82FF", "atom", 3),
-                Subject("chemistry", "Химия", "Вещества, реакции, формулы, растворы и основы органической химии.", "#FF9600", "flask", 4),
-                Subject("biology", "Биология", "Клетки, организмы, системы органов, экология и здоровье человека.", "#00CD9C", "leaf", 5),
-                Subject("informatics", "Информатика", "Алгоритмы, данные, программирование, сети и информационная безопасность.", "#2B70C9", "code", 6),
-                Subject("history-belarus", "История Беларуси", "Ключевые события, личности и процессы в истории Беларуси.", "#A56035", "landmark", 7),
-                Subject("geography", "География", "Карты, страны, природные процессы, население и хозяйство.", "#4DB6AC", "globe", 8)
+                Subject("algebra", "Алгебра", "Уравнения, функции, степени, преобразования и подготовка к экзаменам.", "#3AAAE0", "calculator", 1),
+                Subject("geometry", "Геометрия", "Фигуры, доказательства, площади, окружности и стереометрия.", "#55BFE8", "triangle", 2),
+                Subject("physics", "Физика", "Явления природы, законы движения, энергия, электричество и оптика.", "#8E75D6", "atom", 3),
+                Subject("chemistry", "Химия", "Вещества, реакции, формулы, растворы и основы органической химии.", "#F0A43A", "flask", 4),
+                Subject("biology", "Биология", "Клетки, организмы, системы органов, экология и здоровье человека.", "#2B70C9", "leaf", 5),
+                Subject("informatics", "Информатика", "Алгоритмы, данные, программирование, сети и информационная безопасность.", "#2368C4", "code", 6),
+                Subject("history-belarus", "История Беларуси", "Ключевые события, личности и процессы в истории Беларуси.", "#8E75D6", "landmark", 7),
+                Subject("geography", "География", "Карты, страны, природные процессы, население и хозяйство.", "#4D8FCF", "globe", 8)
             };
+        }
+
+        private static async Task SyncSubjectPaletteAsync(AppDbContext context)
+        {
+            var palette = new Dictionary<string, string>
+            {
+                ["algebra"] = "#3AAAE0",
+                ["geometry"] = "#55BFE8",
+                ["physics"] = "#8E75D6",
+                ["chemistry"] = "#F0A43A",
+                ["biology"] = "#2B70C9",
+                ["informatics"] = "#2368C4",
+                ["history-belarus"] = "#8E75D6",
+                ["geography"] = "#4D8FCF"
+            };
+
+            var codes = palette.Keys.ToArray();
+            var subjects = await context.Subjects
+                .Where(subject => codes.Contains(subject.Code))
+                .ToListAsync();
+
+            var hasChanges = false;
+            foreach (var subject in subjects)
+            {
+                if (subject.ColorHex == palette[subject.Code])
+                {
+                    continue;
+                }
+
+                subject.ColorHex = palette[subject.Code];
+                hasChanges = true;
+            }
+
+            if (hasChanges)
+            {
+                await context.SaveChangesAsync();
+            }
         }
 
         private static Subject Subject(string code, string name, string description, string color, string icon, int order)

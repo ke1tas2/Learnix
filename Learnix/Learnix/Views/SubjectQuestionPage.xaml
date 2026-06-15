@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.Views.SubjectQuestionPage"
              Title="Learnix"
-             BackgroundColor="#F7F7F7">
+             BackgroundColor="#D6F0FA">
     <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="20">
         <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,16,0,10">
             <VerticalStackLayout Spacing="2">
@@ -11,7 +11,7 @@
                        Text="Learnix"
                        FontFamily="GameFontRegular"
                        FontSize="30"
-                       TextColor="#58CC02"/>
+                       TextColor="#3AAAE0"/>
                 <Label x:Name="GoalLabel"
                        Text="Сегодняшняя цель"
                        FontSize="14"
@@ -66,7 +66,7 @@
                 FontFamily="GameFontRegular"
                 FontSize="18"
                 BackgroundColor="Transparent"
-                TextColor="#1CB0F6"
+                TextColor="#3AAAE0"
                 Clicked="OnChangeSubjectsClicked"/>
     </Grid>
 </ContentPage>

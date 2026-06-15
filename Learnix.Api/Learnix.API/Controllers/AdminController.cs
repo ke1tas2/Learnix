@@ -459,7 +459,7 @@ namespace Learnix.API.Controllers
             subject.Name = dto.Name.Trim();
             subject.Description = TrimToNull(dto.Description);
             subject.Grades = dto.Grades.Trim();
-            subject.ColorHex = string.IsNullOrWhiteSpace(dto.ColorHex) ? "#58CC02" : dto.ColorHex.Trim();
+            subject.ColorHex = string.IsNullOrWhiteSpace(dto.ColorHex) ? "#3AAAE0" : dto.ColorHex.Trim();
             subject.IconKey = string.IsNullOrWhiteSpace(dto.IconKey) ? "book" : dto.IconKey.Trim();
             subject.SortOrder = dto.SortOrder > 0
                 ? dto.SortOrder

@@ -30,7 +30,7 @@ namespace Learnix.API.Models
 
         [MaxLength(16)]
         [Column("color_hex")]
-        public string ColorHex { get; set; } = "#58CC02";
+        public string ColorHex { get; set; } = "#3AAAE0";
 
         [MaxLength(40)]
         [Column("icon_key")]

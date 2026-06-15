@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learnix.Views.HowLongQuestionPage"
              Title="Цель"
-             BackgroundColor="#F7F7F7">
+             BackgroundColor="#D6F0FA">
 
     <Grid RowDefinitions="*,Auto" Padding="24">
         <VerticalStackLayout Grid.Row="0"
@@ -12,7 +12,7 @@
                              HorizontalOptions="Center">
             <Label Text="Сколько времени вы готовы учиться каждый день?"
                    FontFamily="GameFontRegular"
-                   TextColor="#58CC02"
+                   TextColor="#3AAAE0"
                    FontSize="30"
                    HorizontalTextAlignment="Center"
                    Margin="0,0,0,15"/>
@@ -21,7 +21,7 @@
                 <RadioButton x:Name="Minutes5" GroupName="timeGroup" Content="5 минут в день" FontSize="16" TextColor="Black"/>
             </Border>
 
-            <Border StrokeThickness="2" Stroke="#58CC02" WidthRequest="300" HorizontalOptions="Center" BackgroundColor="White" StrokeShape="RoundRectangle 16" Padding="4">
+            <Border StrokeThickness="2" Stroke="#3AAAE0" WidthRequest="300" HorizontalOptions="Center" BackgroundColor="White" StrokeShape="RoundRectangle 16" Padding="4">
                 <RadioButton x:Name="Minutes10" GroupName="timeGroup" Content="10 минут в день" FontSize="16" TextColor="Black" IsChecked="True"/>
             </Border>
 
@@ -39,8 +39,8 @@
                 Text="Продолжить"
                 FontFamily="GameFontRegular"
                 FontSize="18"
-                BackgroundColor="#58CC02"
-                TextColor="White"
+                BackgroundColor="#AFC9F8"
+                TextColor="Black"
                 CornerRadius="14"
                 WidthRequest="250"
                 HeightRequest="45"

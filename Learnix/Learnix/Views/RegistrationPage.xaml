@@ -4,7 +4,7 @@
              x:Class="Learnix.RegistrationPage"
              Title="Регистрация">
 
-    <ScrollView BackgroundColor="#F7F7F7">
+    <ScrollView BackgroundColor="#D6F0FA">
         <Grid Padding="30"
               RowDefinitions="Auto,Auto,*,Auto"
               RowSpacing="20"
@@ -23,7 +23,7 @@
                    FontSize="40"
                    VerticalOptions="End"
                    HorizontalOptions="Center"
-                   TextColor="#58CC02"
+                   TextColor="#3AAAE0"
                    Margin="0,40,0,0"/>
 
             <VerticalStackLayout Grid.Row="2"
@@ -94,8 +94,8 @@
                         FontFamily="GameFontRegular"
                         x:Name="RegisterBtn"
                         FontSize="18"
-                        BackgroundColor="#58CC02"
-                        TextColor="White"
+                        BackgroundColor="#AFC9F8"
+                        TextColor="Black"
                         CornerRadius="14"
                         WidthRequest="280"
                         HeightRequest="45"
@@ -105,7 +105,7 @@
                         FontFamily="GameFontRegular"
                         FontSize="20"
                         BackgroundColor="Transparent"
-                        TextColor="#1CB0F6"
+                        TextColor="#3AAAE0"
                         Clicked="OnBackClicked"/>
             </VerticalStackLayout>
         </Grid>

@@ -21,7 +21,7 @@ finally {
 }
 
 $env:ASPNETCORE_ENVIRONMENT = "Development"
-$env:LEARNIX_DB_CONNECTION = "Host=localhost;Port=55432;Database=learnix_db;Username=postgres;Password=jara130308"
+$env:LEARNIX_DB_CONNECTION = "Host=127.0.0.1;Port=55432;Database=learnix_db;Username=postgres;Password=jara130308;SSL Mode=Disable;GSS Encryption Mode=Disable"
 
-Write-Host "Starting Learnix API on http://localhost:$ApiPort ..."
-dotnet run --project $projectPath --urls "http://localhost:$ApiPort"
+Write-Host "Starting Learnix API on http://0.0.0.0:$ApiPort ..."
+dotnet run --project $projectPath --urls "http://0.0.0.0:$ApiPort"

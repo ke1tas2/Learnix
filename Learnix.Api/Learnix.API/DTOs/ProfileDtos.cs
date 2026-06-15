@@ -33,7 +33,7 @@ namespace Learnix.API.DTOs
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string SubjectName { get; set; } = string.Empty;
-        public string ColorHex { get; set; } = "#58CC02";
+        public string ColorHex { get; set; } = "#3AAAE0";
         public DateTime? EarnedAt { get; set; }
     }
 }
